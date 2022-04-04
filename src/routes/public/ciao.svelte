@@ -1,4 +1,6 @@
-<div class="p-3 mb-2 bg-secondary text-white">
+
+
+	<br><br><br>
 	<div class="row align-items-start">
 		<div class="col">
 			<div class="container">
@@ -23,12 +25,49 @@
 				width="80%"
 				height="80%"
 				class="rounded mx-auto d-block"
-				alt="..."
+				alt="schema torneo"
 			/>
 		</div>
 	</div>
-</div>
+	<br><br><br>
 
-<div class="ratio ratio-4x3">
-    <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+<br><br><br><br><br><br>
+
+<div class="ratio ratio-4x3" >
+    <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0 " title="YouTube video" allowfullscreen ></iframe>
+  </div>
+
+  <br> <br> <br> <br>
+<center> <h1>Trusted by</h1></center>
+<br> <br> 
+  <div class="container">
+	<div class="row align-items-end">
+	  <div class="col">
+		<img
+				src="https://www.astuccieshopper.it/wp-content/uploads/2018/09/logo-astratto-di-sicurezza.jpeg"
+				width="70%"
+				height="70%"
+				class="rounded mx-auto d-block"
+				alt="azienda1"
+			/>
+	  </div>
+	  <div class="col">
+		<img
+				src="https://www.lelcomunicazione.it/public/blog/creazione-un-logo-aziendale-successo.jpg"
+				width="70%"
+				height="70%"
+				class="rounded mx-auto d-block"
+				alt="azienda2"
+			/>
+	  </div>
+	  <div class="col">
+		<img
+				src="https://www.studio7b.it/wp-content/uploads/2018/11/hotech_design_radiators_logo_design_loghi_studio7b_01.jpg"
+				width="70%"
+				height="70%"
+				class="rounded mx-auto d-block"
+				alt="azienda3"
+			/>
+	  </div>
+	</div>
   </div>
