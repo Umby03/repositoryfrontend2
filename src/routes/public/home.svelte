@@ -1,5 +1,4 @@
 
-
 	<br><br><br>
 	<div class="row align-items-start">
 		<div class="col">
@@ -20,10 +19,10 @@
 			</div>
 		</div>
 		<div class="col">
-			<img
-				src="https://thumbs.dreamstime.com/b/sostegno-di-torneo-schema-campionato-calcio-con-la-tazza-del-trofeo-vettore-sport-108276770.jpg"
-				width="80%"
-				height="80%"
+			<img 
+				src="https://img.freepik.com/vector-gratis/plantillas-soporte-torneo-plantilla-calendario-playoffs-soporte-torneo-diseno-creativo-soporte-torneo-blanco-ilustracion-vector_435184-453.jpg"
+				width="90%"
+				height="90%"
 				class="rounded mx-auto d-block"
 				alt="schema torneo"
 			/>
@@ -33,14 +32,17 @@
 
 <br><br><br><br><br><br>
 
-<div class="container">
+
+<div class="container-fluid" >
 	<div class="row align-items-start">
 	  <div class="col">
 	  </div>
-	  <div class="col">
-		<div class="ratio ratio-4x3" >
-    <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0 " title="YouTube video" allowfullscreen ></iframe>
+	  <div class="col">-->
+		  <center>
+		<div class="ratio ratio-4x3"   >
+    <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0 " title="YouTube video" allowfullscreen style="padding:10px;"></iframe>
       </div>
+	</center>
       </div>
 	  <div class="col">
 		
@@ -82,5 +84,25 @@
 				alt="azienda3"
 			/>
 	  </div>
-	</div>
+	 </div>
   </div>
+
+
+  <style lang="scss" global>
+	@import 'bootstrap/scss/bootstrap';
+	$colors: (
+  "blue":       $blue,
+  "indigo":     $indigo,
+  "purple":     $purple,
+  "pink":       $pink,
+  "red":        $red,
+  "orange":     $orange,
+  "yellow":     $yellow,
+  "green":      $green,
+  "teal":       $teal,
+  "cyan":       $cyan,
+  "white":      $white,
+  "gray":       $gray-600,
+  "gray-dark":  $gray-800
+);
+	</style>
