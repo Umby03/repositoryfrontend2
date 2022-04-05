@@ -1,17 +1,11 @@
 <script lang="ts">
 
-export let page_title:string
 
 </script>
 
 
 <footer class="row row-cols-5 py-5 my-5 border-top">
 
-<div>
-
-    titolo della pagina {page_title}
-
-</div>
 
     <div class="col">
         <a href="" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
@@ -23,35 +17,35 @@ export let page_title:string
     <div class="col" />
 
     <div class="col">
-        <h5>Section</h5>
+       <!-- <h5>Section</h5>
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-        </ul>
+        </ul>-->
     </div>
 
     <div class="col">
-        <h5>Section</h5>
+      <!--  <h5>Section</h5>
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-        </ul>
+        </ul>-->
     </div>
 
     <div class="col">
-        <h5>Section</h5>
+        <h4>Link Accesibili</h4>
         <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>Home</h6></a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>Chi Siamo</h6></a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>Pricing</h6></a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>FAQs</h6></a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>About</h6></a></li>
         </ul>
     </div>
 </footer>

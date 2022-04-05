@@ -3,7 +3,7 @@ import { goto } from '$app/navigation';
 
 
 import FooterComponent from '../../components/FooterComponents.svelte'
-let ciaovar=2*4
+/*let ciaovar=2*4
 
 $:{
 	if(!ciaovar) ciaovar=0
@@ -15,10 +15,11 @@ function actionClick(){
 	ciaovar=ciaovar*2
 	goto('/admin/prova')
 }
-
+*/
 </script>
 
 <div class="container-fluid">
+	<div class="navdiv">
 	<!-- Navbar content -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">
@@ -50,22 +51,28 @@ function actionClick(){
 					aria-label="Search"
 					style="font-size:19px;"
 				/>
-				<button class="btn btn-outline-success" type="submit" style="font-size:19px;">Search</button
+				<button class="btn btn-outline-success" type="submit" style="font-size:17px;">Search</button
 				>
 			</form>
 		</div>
 	</nav>
 </div>
+</div>
 <br /><br /><br /><br /><br /><br />
 <div class="container">
 	<slot />
-{ciaovar}
+<!--{ciaovar}
 
 <button class="btn btn-primary" on:click={()=>{actionClick()}}>prova bottone</button>
-
-	<FooterComponent page_title="pagina0" />
+-->
+	<FooterComponent  /> <!--page_title="pagina0"-->
 </div>
 
 <style lang="scss" global>
 	@import 'bootstrap/scss/bootstrap';
+	.navdiv{
+		position:fixed;
+		top:0;
+		width:100%;
+	}
 </style>

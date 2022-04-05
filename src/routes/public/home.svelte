@@ -42,7 +42,6 @@
     <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0 " title="YouTube video" allowfullscreen ></iframe>
       </div>
       </div>
-	  </div>
 	  <div class="col">
 		
 	  </div>
@@ -51,7 +50,7 @@
 	</div>
 
 
-  <br> <br> <br> <br>
+  <br> <br> <br> <br> <br> <br> <br>
  <center> <h1>Trusted by</h1></center>
  <br> <br> 
   <div class="container">
