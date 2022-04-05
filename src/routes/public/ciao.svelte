@@ -33,13 +33,27 @@
 
 <br><br><br><br><br><br>
 
-<div class="ratio ratio-4x3" >
+<div class="container">
+	<div class="row align-items-start">
+	  <div class="col">
+	  </div>
+	  <div class="col">
+		<div class="ratio ratio-4x3" >
     <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0 " title="YouTube video" allowfullscreen ></iframe>
-  </div>
+      </div>
+      </div>
+	  </div>
+	  <div class="col">
+		
+	  </div>
+
+	</div>
+	</div>
+
 
   <br> <br> <br> <br>
-<center> <h1>Trusted by</h1></center>
-<br> <br> 
+ <center> <h1>Trusted by</h1></center>
+ <br> <br> 
   <div class="container">
 	<div class="row align-items-end">
 	  <div class="col">
