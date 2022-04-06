@@ -20,7 +20,7 @@ function actionClick(){
 
 <div class="container-fluid">
 	<div class="navdiv">
-	<!-- Navbar content -->
+		
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">
 			<img
@@ -51,15 +51,16 @@ function actionClick(){
 					aria-label="Search"
 					style="font-size:19px;"
 				/>
-				<button class="btn btn-outline-success" type="submit" style="font-size:17px;">Search</button
+				<button class="btn btn-outline-warning" type="submit" style="font-size:17px;">Search</button
 				>
 			</form>
 		</div>
 	</nav>
+
 </div>
 </div>
 <br /><br /><br /><br /><br /><br />
-<div class="container">
+	<div class="container-fluid">
 	<slot />
 <!--{ciaovar}
 
@@ -70,9 +71,11 @@ function actionClick(){
 
 <style lang="scss" global>
 	@import 'bootstrap/scss/bootstrap';
+	
 	.navdiv{
 		position:fixed;
 		top:0;
 		width:100%;
 	}
+	
 </style>
