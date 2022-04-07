@@ -1,6 +1,8 @@
 <script lang="ts">
 import { goto } from '$app/navigation';
-
+function actionClick(){
+goto('/public/login')
+}
 
 import FooterComponent from '../../components/FooterComponents.svelte'
 /*let ciaovar=2*4
@@ -37,10 +39,10 @@ function actionClick(){
 					<a class="nav-link active" aria-current="page" href="#"><h3>Home</h3></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#"><h3>Accedi</h3></a>
+					<a class="nav-link" on:click={()=>{actionClick()}}><h3>Accedi</h3></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#"><h3>Registrati</h3></a>
+					<a class="nav-link"  on:click={()=>{actionClick()}}><h3>Registrati</h3></a>
 				</li>
 			</ul>
 			<form class="d-flex">
@@ -76,6 +78,7 @@ function actionClick(){
 		position:fixed;
 		top:0;
 		width:100%;
+		z-index:999;
 	}
 	
 </style>

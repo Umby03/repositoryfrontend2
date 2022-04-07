@@ -37,7 +37,7 @@
 	<div class="row align-items-start">
 	  <div class="col">
 	  </div>
-	  <div class="col">-->
+	  <div class="col">
 		  <center>
 		<div class="ratio ratio-4x3"   >
     <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0 " title="YouTube video" allowfullscreen style="padding:10px;"></iframe>
