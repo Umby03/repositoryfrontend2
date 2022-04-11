@@ -28,7 +28,8 @@
 				<button type="button" class="btn btn-outline-warning"><h3>Submit</h3></button>
 			</form>
 			<br /><br /><br />
-			<h1>Registrati</h1>
+			<h5>Non hai ancora un account?  </h5>
+			<h1>Registrati Adesso</h1>
 			<br />
 			<form style="width:300px;">
 				<div class="mb-3">

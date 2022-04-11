@@ -3,7 +3,9 @@ import { goto } from '$app/navigation';
 function actionClick(){
 goto('/public/login')
 }
-
+function ActionClick(){
+goto('/public/home')
+}
 import FooterComponent from '../../components/FooterComponents.svelte'
 /*let ciaovar=2*4
 
@@ -36,7 +38,7 @@ function actionClick(){
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#"><h3>Home</h3></a>
+					<a class="nav-link active" on:click={()=>{ActionClick()}}><h3>Home</h3></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" on:click={()=>{actionClick()}}><h3>Accedi</h3></a>
