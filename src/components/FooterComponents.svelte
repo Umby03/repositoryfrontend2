@@ -1,5 +1,6 @@
 <script lang="ts">
 
+let test: string[]=[]
 
 </script>
 
