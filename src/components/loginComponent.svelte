@@ -27,4 +27,4 @@
 	<button type="button" class="btn btn-outline-warning"><h3>Submit</h3></button>
 </form>
 <br /><br /><br />
-<div class="btn btn-link" on:click={toggleHasAccount}>Non hai ancora un account?</div>
+<div class="btn btn-link" on:click={toggleHasAccount}><h4 style="color:black" >Non hai ancora un Account?</h4></div>
