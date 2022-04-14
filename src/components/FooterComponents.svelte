@@ -5,7 +5,7 @@ let test: string[]=[]
 </script>
 
 
-<footer class="row row-cols-5 py-5 my-5 border-top">
+<footer class="row row-cols-5 py-5 my-5 border-top"  style="margin-top: 0!important;">
 
 
     <div class="col">
