@@ -11,25 +11,25 @@
 	</a>
 
 	<div class="d-flex h-100">
-		<form class="d-flex search-form">
+		<form class="d-flex search-form" id="form">
 			<input
 				class="form-control"
 				type="search"
 				placeholder="Cerca un Torneo"
 				aria-label="Search"
-				style="font-size:19px;"
+				style="font-size:19px"
 
 			/>
 			<button class="btn btn-outline-success" 
 			type="submit" 
 			style="font-size:17px;">
 			Cerca</button>
-		</form>
+		</form>&nbsp &nbsp
 		<a class="navbar-brand" href="#" on:click={()=>{actionClick()}}>
 			<img src="https://cdn2.vectorstock.com/i/1000x1000/32/01/user-sign-icon-person-symbol-human-avatar-vector-12693201.jpg" alt="Profile banner"
 			width="50" height="50">
 		</a>
-		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="sidebarbutton">
 			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
 				<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
 			  </svg>
@@ -51,7 +51,7 @@
 			</div>
 			<div class="offcanvas-body">
 				<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:100% height:100%">
-					<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" on:click={()=>{actionClick3()}}>
 				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 				<span class="fs-4">Home</span>
 					</a>
@@ -72,19 +72,19 @@
 				<li>
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-					Orders
+					Visualizza torneo
 				  </a>
 				</li>
 				<li>
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-					Products
+					Crea club
 				  </a>
 				</li>
 				<li>
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-					Customers
+					Logout
 				  </a>
 				</li>
 			  </ul>
@@ -95,11 +95,7 @@
 </div>
 
 <style lang="scss" global>
-	//.navbar navbr /ar-light bg-light{
 	@import 'bootstrap/scss/bootstrap';
-	//height: 700px;
-	//width: 950px;
-	//}
 
   nav {
     display: flex;
@@ -108,6 +104,19 @@
     width: 100%;
   }
 
+  #form{
+	margin-bottom: auto;
+    margin-top: auto;
+  }
+
+  #sidebarbutton{
+	margin-bottom: auto;
+    margin-top: auto;
+  }
+
+.nav-item:hover {
+	background-color: red;
+}
 </style>
 
 <script lang="ts">
@@ -121,5 +130,9 @@ goto('/admin/Profilo')
 
 function actionClick2(){
 goto('/admin/creazioneTorneo')
+}
+
+function actionClick3(){
+goto('/admin/primo')
 }
 </script>
