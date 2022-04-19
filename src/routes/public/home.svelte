@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 
 	function creaTorneo() {
-		window.location.href='../admin/creazioneTorneo';
+		window.location.href='/admin/creazioneTorneo';
 	}
 </script>
 

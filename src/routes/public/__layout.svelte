@@ -7,6 +7,27 @@ function ActionClick(){
 	window.location.href= '/public/home'
 }
 
+let nomeTorneo: string;
+
+async function cercatorneo(){
+
+	
+	async function creazioneTorneo() {
+		const response = await fetch('http://192.168.6.55:8080/auth/', {
+			method: 'post',
+
+			body: JSON.stringify({
+				nomeTorneo
+			}),
+
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+
+		const result = await response.json();
+	}
+}
 import FooterComponent from '../../components/FooterComponents.svelte'
 /*let ciaovar=2*4
 
@@ -47,13 +68,14 @@ function actionClick(){
 			</ul>
 			<form class="d-flex">
 				<input
+				    bind:value={nomeTorneo}
 					class="form-control me-2"
 					type="search"
 					placeholder="Cerca un Torneo"
 					aria-label="Search"
 					style="font-size:19px;"
 				/>
-				<button class="btn btn-outline-warning" type="submit" style="font-size:17px;">Search</button
+				<button class="btn btn-outline-warning"  on:click={()=>{cercatorneo()}} type="submit" style="font-size:17px;">Search</button
 				>
 			</form>
 		</div>

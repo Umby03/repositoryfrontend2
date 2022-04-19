@@ -4,8 +4,8 @@
 	let email: string;
 	let password: string;
 
-	async function Signup() {
-		const response = await fetch('http://192.168.6.55:8080/auth/register', {
+	async function Login() {
+		const response = await fetch('http://192.168.6.55:8080/auth/login', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -17,6 +17,8 @@
 				'content-type': 'application/json'
 			}
 		});
+        
+        localStorage.setItem('Profilo', 'email');
 
 		const result = await response.json();
 	}

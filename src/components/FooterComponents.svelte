@@ -4,10 +4,10 @@ import { navigating } from '$app/stores';
 
 	let test: string[] = [];
 	function Chisiamo() {
-		window.location.href='../routes/public/chisiamo';
+		window.location.href='/public/chisiamo';
 	}
 	function Home() {
-		window.location.href='../../routes/public/home';
+		window.location.href='/public/home';
 	}
 
 </script>

@@ -1,10 +1,14 @@
 <script lang="ts">
+import { goto } from "$app/navigation";
+
+
+
 	let nomeTorneo: string;
 	let descrizioneTorneo: string;
 	let sportTorneo: string;
 
-	async function Signup() {
-		const response = await fetch('http://192.168.6.55:8080/auth/register', {
+	async function creazioneTorneo() {
+		const response = await fetch('http://192.168.6.55:8080/auth/', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -19,6 +23,11 @@
 		});
 
 		const result = await response.json();
+	}
+
+
+	if(!localStorage.getItem('Profilo')){
+     goto('/public/login')
 	}
 </script>
 
