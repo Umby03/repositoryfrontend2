@@ -30,7 +30,9 @@
 			width="50" height="50">
 		</a>
 		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-			Button with data-bs-target
+			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+			  </svg>
 		  </button>
 	</div>
 </nav>
@@ -40,32 +42,55 @@
 	<slot />
 
 
-	<br /><b><br /><br /><br /><br />
-		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-			Button with data-bs-target
-		  </button>
+	<br /><br /><br /><br /><br /><br />
 		  
-		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+		<div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
 			<div class="offcanvas-header">
-			  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-			  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Home</h5>
+			  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"> </button>
 			</div>
 			<div class="offcanvas-body">
-			  <div>
-				Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-			  </div>
-			  <div class="dropdown mt-3">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-				  Dropdown button
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				  <li><a class="dropdown-item" href="#">Action</a></li>
-				  <li><a class="dropdown-item" href="#">Another action</a></li>
-				  <li><a class="dropdown-item" href="#">Something else here</a></li>
-				</ul>
-			  </div>
-			</div>
+				<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:100% height:100%">
+					<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+				<span class="fs-4">Home</span>
+					</a>
+			  <hr>
+			  <ul class="nav nav-pills flex-column mb-auto">
+				<li class="nav-item">
+				  <a href="#" class="nav-link active" aria-current="page">
+					<svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+					Crea un torneo
+				  </a>
+				</li>
+				<li>
+				  <a href="#" class="nav-link text-white">
+					<svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+					Visualizza club
+				  </a>
+				</li>
+				<li>
+				  <a href="#" class="nav-link text-white">
+					<svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+					Orders
+				  </a>
+				</li>
+				<li>
+				  <a href="#" class="nav-link text-white">
+					<svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+					Products
+				  </a>
+				</li>
+				<li>
+				  <a href="#" class="nav-link text-white">
+					<svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+					Customers
+				  </a>
+				</li>
+			  </ul>
 		  </div>
+		</div>
+	</div>
 <FooterComponent  />
 </div>
 
