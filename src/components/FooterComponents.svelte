@@ -1,52 +1,57 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 
-let test: string[]=[]
-
+	let test: string[] = [];
+	function Chisiamo() {
+		goto('../routes/public/chisiamo');
+	}
+	function Home() {
+		goto('../../routes/public/home');
+	}
 </script>
 
+<footer class="row row-cols-5 py-5 my-5 border-top" style="margin-top: 0!important;">
+	<div class="col">
+		<a href="" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+			<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
+		</a>
+		<p class="text-muted">© 2022</p>
+	</div>
 
-<footer class="row row-cols-5 py-5 my-5 border-top"  style="margin-top: 0!important;">
+	<div class="col" />
 
+	<div class="col" />
 
-    <div class="col">
-        <a href="" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
-        </a>
-        <p class="text-muted">© 2022</p>
-    </div>
+	<div class="col" />
 
-    <div class="col" />
+	<div class="col">
+		<h4>Link Accesibili</h4>
+		<ul class="nav flex-column">
+			<li class="nav-item mb-2">
+				<a
+					on:click={() => {
+						Home();
+					}}
+					class="nav-link p-0 text-muted"
+					><h6>Home</h6>
+				</a>
+			</li>
 
-    <div class="col">
-       <!-- <h5>Section</h5>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-        </ul>-->
-    </div>
+			<li class="nav-item mb-2">
+				<a
+					on:click={() => {
+						Chisiamo();
+					}}
+					class="nav-link p-0 text-muted"
+					><h6>Chi Siamo</h6>
+				</a>
+			</li>
 
-    <div class="col">
-      <!--  <h5>Section</h5>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-        </ul>-->
-    </div>
-
-    <div class="col">
-        <h4>Link Accesibili</h4>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>Home</h6></a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>Chi Siamo</h6></a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>Pricing</h6></a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>FAQs</h6></a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>About</h6></a></li>
-        </ul>
-    </div>
+			<li class="nav-item mb-2">
+				<a href="#" class="nav-link p-0 text-muted"><h6>Pricing</h6></a>
+			</li>
+			<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>FAQs</h6></a></li>
+			<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>About</h6></a></li>
+		</ul>
+	</div>
 </footer>

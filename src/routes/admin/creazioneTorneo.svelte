@@ -1,3 +1,27 @@
+<script lang="ts">
+	let nomeTorneo: string;
+	let descrizioneTorneo: string;
+	let sportTorneo: string;
+
+	async function Signup() {
+		const response = await fetch('http://192.168.6.55:8080/auth/register', {
+			method: 'post',
+
+			body: JSON.stringify({
+				nomeTorneo,
+				descrizioneTorneo,
+				sportTorneo
+			}),
+
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+
+		const result = await response.json();
+	}
+</script>
+
 <center>
 	<h1 style="margin-top:20px">Creazione torneo</h1>
 </center>
@@ -5,8 +29,9 @@
 	<div class="row align-items-start">
 		<div class="col">
 			<div class="input mb-3">
-				<label for="nomeTorneo" class="form-label"><h3>Nome Torneo</h3></label>
+				<label for="nomeTorneo" class="form-label">Nome Torneo</label>
 				<input
+					bind:value={nomeTorneo}
 					type="text"
 					class="form-control"
 					aria-label="nomeTorneo"
@@ -15,8 +40,13 @@
 				/>
 			</div>
 
-			<div class="form-floating">
-				<label for="textarea">Descrizione Torneo</label>
+			<div class="mb-3">
+				<label for="textarea1" class="form-label">Descrizione Torneo</label>
+				<textarea bind:value={descrizioneTorneo} class="form-control" id="textarea1" rows="3" />
+			</div>
+
+			<!--	<div class="form-floating">
+				<label for="textarea">Descrizione Torneo </label>
 				<textarea
 					class="form-control"
 					placeholder="Descrizione"
@@ -24,12 +54,20 @@
 					style="height:100px;"
 				/>
 			</div>
+		-->
 
-			<select class="form-select" aria-label="Default select example" style="margin-top:10px">
+			<select
+				bind:value={sportTorneo}
+				class="form-select"
+				aria-label="Select sport"
+				style="margin-top:10px; wight:20px"
+			>
 				<option selected>Seleziona lo sport</option>
 				<option value="1">Pallavolo</option>
 				<option value="2">Calcio</option>
-				<option value="3">..</option>
+				<option value="3">Tennis</option>
+				<option value="4">Basket</option>
+				<option value="4">Padel</option>
 			</select>
 		</div>
 		<div class="col" />

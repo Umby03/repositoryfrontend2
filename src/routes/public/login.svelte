@@ -8,6 +8,9 @@
 
 	import LoginComponent from '../../components/loginComponent.svelte'
     import SignUpComponent from '../../components/signUpComponent.svelte'
+
+	//ESEMPIO GET CON PROMISE
+
 	/*function doRequestWithPromise() {
 		const url = 'http://192.168.46.55:8080/ping';
 
@@ -33,6 +36,10 @@
 				console.info('done');
 			});
 	}
+
+
+		//ESEMPIO GET CON FUNZIONE ASINCRONA E AWAIT
+
 	async function doRequest() {
 		try{
 			const url = 'http://192.168.46.55:8080/ping';
@@ -49,7 +56,8 @@ console.log(formattedJson);
 		}
 
 	}
-
+	
+  //RICHIAMO FUNZIONI
 	doRequest();
 
 	doRequestWithPromise();*/
