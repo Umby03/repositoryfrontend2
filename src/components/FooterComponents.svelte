@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+import { navigating } from '$app/stores';
 
 	let test: string[] = [];
 	function Chisiamo() {
-		goto('../routes/public/chisiamo');
+		window.location.href='../routes/public/chisiamo';
 	}
 	function Home() {
-		goto('../../routes/public/home');
+		window.location.href='../../routes/public/home';
 	}
+
 </script>
 
 <footer class="row row-cols-5 py-5 my-5 border-top" style="margin-top: 0!important;">

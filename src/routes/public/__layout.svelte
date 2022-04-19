@@ -1,10 +1,10 @@
 <script lang="ts">
 import { goto } from '$app/navigation';
 function actionClick(){
-goto('/public/login')
+	window.location.href='/public/login'
 }
 function ActionClick(){
-goto('/public/home')
+	window.location.href= '/public/home'
 }
 
 import FooterComponent from '../../components/FooterComponents.svelte'

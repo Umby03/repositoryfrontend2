@@ -57,31 +57,31 @@
 					</a>
 			  <hr>
 			  <ul class="nav nav-pills flex-column mb-auto">
-				<li class="nav-item">
-				  <a href="#" class="nav-link active" aria-current="page"  on:click={()=>{actionClick2()}}>
+				<li class="side-item">
+				  <a href="#" class="nav-link text-white" aria-current="page"  on:click={()=>{actionClick2()}}>
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
 					Crea un torneo
 				  </a>
 				</li>
-				<li>
+				<li class="side-item">
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
 					Visualizza club
 				  </a>
 				</li>
-				<li>
+				<li class="side-item">
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
 					Visualizza torneo
 				  </a>
 				</li>
-				<li>
+				<li class="side-item"> 
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
 					Crea club
 				  </a>
 				</li>
-				<li>
+				<li class="side-item">
 				  <a href="#" class="nav-link text-white">
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
 					Logout
@@ -96,6 +96,7 @@
 
 <style lang="scss" global>
 	@import 'bootstrap/scss/bootstrap';
+	//class:active={page == "creatorneo"}
 
   nav {
     display: flex;
@@ -114,8 +115,8 @@
     margin-top: auto;
   }
 
-.nav-item:hover {
-	background-color: red;
+.side-item:hover {
+	background-color: rebeccapurple ;
 }
 </style>
 
@@ -125,14 +126,14 @@
 
 
 function actionClick(){
-goto('/admin/Profilo')
+window.location.href = '/admin/Profilo';
 }
 
 function actionClick2(){
-goto('/admin/creazioneTorneo')
+	window.location.href = '/admin/creazioneTorneo';
 }
 
 function actionClick3(){
-goto('/admin/primo')
+	window.location.href = '/admin/primo';
 }
 </script>

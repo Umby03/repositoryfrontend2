@@ -21,6 +21,8 @@
                 <td>{item.lastname}</td>
                 <td>{item.altro}</td>
               </tr>
+              {:else}
+              Nessun elemento
         {/each}
           </tbody>
        </table>
