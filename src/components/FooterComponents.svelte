@@ -3,10 +3,10 @@
 
 	let test: string[] = [];
 	function Chisiamo() {
-		goto('../routes/public/chisiamo');
+		goto('/public/chisiamo');
 	}
 	function Home() {
-		goto('../../routes/public/home');
+		goto('/public/home');
 	}
 </script>
 

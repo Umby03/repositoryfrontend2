@@ -15,6 +15,11 @@
           </thead>
           <tbody>
             {#each mockData as item,i}
+          <!--  <tr  on:click={() => {
+          window.location.href = '/admin/torneo/' + item.id
+            }}>
+          -->
+
             <tr>
                 <th scope="row">{cont+i+1}</th>
                 <td>{item.firstname}</td>
