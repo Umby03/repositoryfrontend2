@@ -1,4 +1,9 @@
 <nav class="bg-light">
+	<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="sidebarbutton">
+		<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+		  </svg>
+	  </button>
 	<a class="brand" style="margin: 0; float: none;" href="#">
 		<img
 			src="/docs/5.1/assets/brand/bootstrap-logo.svg"
@@ -20,7 +25,7 @@
 				style="font-size:19px"
 
 			/>
-			<button class="btn btn-outline-success" 
+			<button class="btn btn-outline-warning" 
 			type="submit" 
 			style="font-size:17px;">
 			Cerca</button>
@@ -29,11 +34,6 @@
 			<img src="https://cdn2.vectorstock.com/i/1000x1000/32/01/user-sign-icon-person-symbol-human-avatar-vector-12693201.jpg" alt="Profile banner"
 			width="50" height="50">
 		</a>
-		<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" id="sidebarbutton">
-			<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-				<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-			  </svg>
-		  </button>
 	</div>
 </nav>
 
@@ -51,7 +51,7 @@
 			</div>
 			<div class="offcanvas-body">
 				<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:100% height:100%">
-					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" class:active={flag == 0} on:click={()=>{actionClick3()}}>
+					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"  on:click={()=>{actionClick3()}}>
 				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 				<span class="fs-4">Home</span>
 					</a>
@@ -119,13 +119,13 @@
 	background-color: rebeccapurple ;
 }
 
-#sideitem1 > .active > a{ 
+#sideitem1 > .active{ 
     background-color: rebeccapurple;
 }
 </style>
 
 <script lang="ts">
-	let flag=0
+	let flag
 
 	import { goto } from '$app/navigation';
 	import FooterComponent from '../../components/FooterComponents.svelte'
