@@ -1,7 +1,7 @@
 <script lang="ts">
 import { goto } from "$app/navigation";
 
-
+let flag=1
 
 	let nomeTorneo: string;
 	let descrizioneTorneo: string;
@@ -26,9 +26,9 @@ import { goto } from "$app/navigation";
 	}
 
 
-	if(!localStorage.getItem('Profilo')){
-     goto('/public/login')
-	}
+	//if(!localStorage.getItem('Profilo')){
+    // goto('/public/login')
+	//}
 </script>
 
 <center>

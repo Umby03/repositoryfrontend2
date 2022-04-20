@@ -51,14 +51,14 @@
 			</div>
 			<div class="offcanvas-body">
 				<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:100% height:100%">
-					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" on:click={()=>{actionClick3()}}>
+					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" class:active={flag == 0} on:click={()=>{actionClick3()}}>
 				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 				<span class="fs-4">Home</span>
 					</a>
 			  <hr>
 			  <ul class="nav nav-pills flex-column mb-auto">
 				<li class="side-item">
-				  <a href="#" class="nav-link text-white" aria-current="page"  on:click={()=>{actionClick2()}}>
+				  <a href="#" class="nav-link text-white" id="sideitem1"class:active={flag == 1} aria-current="page" on:click={()=>{actionClick2()}}>
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
 					Crea un torneo
 				  </a>
@@ -118,22 +118,31 @@
 .side-item:hover {
 	background-color: rebeccapurple ;
 }
+
+#sideitem1 > .active > a{ 
+    background-color: rebeccapurple;
+}
 </style>
 
 <script lang="ts">
+	let flag=0
+
 	import { goto } from '$app/navigation';
 	import FooterComponent from '../../components/FooterComponents.svelte'
 
 
 function actionClick(){
+	flag=2
 window.location.href = '/admin/Profilo';
 }
 
 function actionClick2(){
+	flag=1
 	window.location.href = '/admin/creazioneTorneo';
 }
 
 function actionClick3(){
+	flag=0
 	window.location.href = '/admin/primo';
 }
 </script>

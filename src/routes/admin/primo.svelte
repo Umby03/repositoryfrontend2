@@ -2,8 +2,9 @@
     <div class="col-md-3" id="sidebar"> 
     </div>
     <div class="col-md-6">
-      <br />  <br />  <br />
       <center>
+        <h2>I tuoi tornei</h2>
+      <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
             <tr>
