@@ -26,8 +26,9 @@ import {flag} from "../../stores/store"
 	}
 
 
-	
-
+	/*if(!localStorage.getItem('Profilo')){
+     goto('/public/login')
+	}*/
 </script>
 
 <center>
@@ -62,7 +63,7 @@ import {flag} from "../../stores/store"
 					style="height:100px;"
 				/>
 			</div>
-		-->
+		  -->
 
 			<select
 				bind:value={sportTorneo}
@@ -77,7 +78,17 @@ import {flag} from "../../stores/store"
 				<option value="4">Basket</option>
 				<option value="4">Padel</option>
 			</select>
-		</div>
+
+			
+				<button
+					type="button"
+					class="btn btn-outline-warning" style=" margin-top:30px"
+					on:click={() => {
+						creazioneTorneo();
+					}}><h2>CREA IL TUO TORNEO</h2></button
+				>
+			</div>
 		<div class="col" />
 	</div>
 </div>
+
