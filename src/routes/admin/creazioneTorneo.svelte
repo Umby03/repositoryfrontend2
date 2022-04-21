@@ -26,9 +26,9 @@ let flag=1
 	}
 
 
-	//if(!localStorage.getItem('Profilo')){
-    // goto('/public/login')
-	//}
+	/*if(!localStorage.getItem('Profilo')){
+     goto('/public/login')
+	}*/
 </script>
 
 <center>
@@ -63,7 +63,7 @@ let flag=1
 					style="height:100px;"
 				/>
 			</div>
-		-->
+		  -->
 
 			<select
 				bind:value={sportTorneo}
@@ -78,7 +78,17 @@ let flag=1
 				<option value="4">Basket</option>
 				<option value="4">Padel</option>
 			</select>
-		</div>
+
+			
+				<button
+					type="button"
+					class="btn btn-outline-warning" style=" margin-top:30px"
+					on:click={() => {
+						creazioneTorneo();
+					}}><h2>CREA IL TUO TORNEO</h2></button
+				>
+			</div>
 		<div class="col" />
 	</div>
 </div>
+
