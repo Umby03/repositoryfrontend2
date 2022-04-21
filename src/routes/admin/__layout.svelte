@@ -30,7 +30,7 @@
 			style="font-size:17px;">
 			Cerca</button>
 		</form>&nbsp &nbsp
-		<a class="navbar-brand" href="#" on:click={()=>{actionClick()}}>
+		<a class="navbar-brand" href="#" on:click={()=>{actionClick("/admin/Profilo")}}>
 			<img src="https://cdn2.vectorstock.com/i/1000x1000/32/01/user-sign-icon-person-symbol-human-avatar-vector-12693201.jpg" alt="Profile banner"
 			width="50" height="50">
 		</a>
@@ -51,14 +51,14 @@
 			</div>
 			<div class="offcanvas-body">
 				<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width:100% height:100%">
-					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"  on:click={()=>{actionClick3()}}>
+					<a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"  on:click={()=>{actionClick("/admin/primo")}}>
 				<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
 				<span class="fs-4">Home</span>
 					</a>
 			  <hr>
 			  <ul class="nav nav-pills flex-column mb-auto">
 				<li class="side-item">
-				  <a href="#" class="nav-link text-white" id="sideitem1"class:active={flag == 1} aria-current="page" on:click={()=>{actionClick2()}}>
+				  <a href="#" class="nav-link text-white"  class:active={link == "admin/creazioneTorneo"} aria-current="page" on:click={()=>{actionClick("/admin/creazioneTorneo")}}>
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
 					Crea un torneo
 				  </a>
@@ -82,7 +82,7 @@
 				  </a>
 				</li>
 				<li class="side-item">
-				  <a href="#" class="nav-link text-white">
+				  <a href="#" class="nav-link text-white" on:click={()=>logout()}>
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
 					Logout
 				  </a>
@@ -119,30 +119,34 @@
 	background-color: rebeccapurple ;
 }
 
-#sideitem1 > .active{ 
-    background-color: rebeccapurple;
+.side-item > .active { 
+    background-color: rebeccapurple !important;
 }
 </style>
 
 <script lang="ts">
-	let flag
-
-	import { goto } from '$app/navigation';
+	import {page } from '$app/stores';
 	import FooterComponent from '../../components/FooterComponents.svelte'
+	import { onMount } from 'svelte'
+
+	let link: string
+	$: link = $page.routeId 
+	$: console.log(link)
+	function actionClick(link){
+		window.location.href = link;
+	}
+
+//	onMount(() => {
+//		if(!localStorage.getItem('Profilo')){
+//    	 window.location.href= "/public/login"
+//		}
+//	})
+
+	function logout(){
+		localStorage.removeItem("Profilo")
+		localStorage.removeItem("token")
+	}
 
 
-function actionClick(){
-	flag=2
-window.location.href = '/admin/Profilo';
-}
 
-function actionClick2(){
-	flag=1
-	window.location.href = '/admin/creazioneTorneo';
-}
-
-function actionClick3(){
-	flag=0
-	window.location.href = '/admin/primo';
-}
 </script>

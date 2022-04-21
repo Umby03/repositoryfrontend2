@@ -1,9 +1,8 @@
 <script lang="ts">
-import { user } from "../../stores/user";
+import { user } from "../../stores/store";
 
-setTimeout(() => {
-  $user.name = "nuovo utente"
-}, 3000)
+//let user=JSON.parse(localStorage.getItem("Profilo"))
+
 
 //const result = api()
 //$user = result
