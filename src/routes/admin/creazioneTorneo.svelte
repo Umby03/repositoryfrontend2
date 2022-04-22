@@ -6,19 +6,55 @@ let flag=1
 	let nomeTorneo: string;
 	let descrizioneTorneo: string;
 	let sportTorneo: string;
+	let privato= true
+	let numeromax: number
+	let ricerca: string
+    let Utenti=[]
+	let i=0;
+	let selezionato:string
+	let results = [];
+
+	$: {
+		fetch('http://192.168.58.55:8080/tournament/allTournament', {
+			body: JSON.stringify({ ricerca }),
+
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results = json;
+			});
+	}
+ 
+	
+
+    function selezionaUtente(){
+
+   Utenti[i] = selezionato
+   i++
+     
+	}
+
+
 
 	async function creazioneTorneo() {
-		const response = await fetch('http://192.168.6.55:8080/auth/', {
+		const response = await fetch('http://192.168.58.55:8080/tournament/create', {
 			method: 'post',
 
 			body: JSON.stringify({
 				nomeTorneo,
 				descrizioneTorneo,
-				sportTorneo
+				sportTorneo,
+				privato,
+				numeromax
 			}),
 
 			headers: {
-				'content-type': 'application/json'
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
 			}
 		});
 
@@ -54,38 +90,71 @@ let flag=1
 				<textarea bind:value={descrizioneTorneo} class="form-control" id="textarea1" rows="3" />
 			</div>
 
-			<!--	<div class="form-floating">
-				<label for="textarea">Descrizione Torneo </label>
-				<textarea
-					class="form-control"
-					placeholder="Descrizione"
-					id="textarea"
-					style="height:100px;"
-				/>
+
+
+
+
+			<div class="mb-3">
+				<label for="textarea2" class="form-label">Sport Torneo</label>
+				<textarea  style=" height:10px;"bind:value={sportTorneo} class="form-control" id="textarea2" rows="3" />
 			</div>
-		  -->
+			<br>
+			<div class="form-check">
+				<input group={privato} class="form-check-input" type="radio" name="flexRadioPubblico" id="flexRadioPubblico" value={false}>
+				<label  class="form-check-label" for="flexRadioPubllico" >
+				  Pubblico
+				</label>
+			  </div>
+			  <div class="form-check">
+				<input group={privato} class="form-check-input" type="radio" name="flexRadioPrivato" id="flexRadioPrivato" value={true} >
+				<label class="form-check-label" for="flexRadioPrivato">
+				  Privato
+				</label>
+			  </div>
+             <br>
+			  <div class="mb-3">
+             <input style="width:60px;" bind:value={numeromax} type="number" name="numeromax" id="numeromax">
+			 <label class="form-check-label" for="numeromax">
+				 Inserisci il numero massimo di partecipanti per ogni squadra
+			 </label>
+			 </div>
+			<!--OGNI VOLTA CHE SCRIIVO ESEGUE LA QUERY DI RICERCA, SE CLICCO UN RISULTATO DEVE SCRIVERLO IN UN ELENCO-->
 
-			<select
-				bind:value={sportTorneo}
-				class="form-select"
-				aria-label="Select sport"
-				style="margin-top:10px; wight:20px"
-			>
-				<option selected>Seleziona lo sport</option>
-				<option value="1">Pallavolo</option>
-				<option value="2">Calcio</option>
-				<option value="3">Tennis</option>
-				<option value="4">Basket</option>
-				<option value="4">Padel</option>
-			</select>
+			 <form class="form-inline my-2 my-lg-0">
+				<input bind:value={ricerca} class="form-control mr-sm-2" type="search" placeholder="Cerca" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cerca</button>
+			  </form>
+			  {#each results as item, i}
+				
+				<tr>
+					
+					<td value={selezionato} on:click={() => {
+						selezionaUtente();
+					}}>{item.element}</td>
+				</tr>
+			{:else}
+				Nessun elemento
+			{/each}
 
-			
+             <br>
+
+				{#each Utenti as item, i}
+				
+				<tr>
+					
+					<td>{item.i}</td>
+				</tr>
+			{:else}
+				Nessun elemento
+			{/each}
+				
+
 				<button
 					type="button"
 					class="btn btn-outline-warning" style=" margin-top:30px"
 					on:click={() => {
 						creazioneTorneo();
-					}}><h2>CREA IL TUO TORNEO</h2></button
+					}}><h2>CREA TORNEO</h2></button
 				>
 			</div>
 		<div class="col" />

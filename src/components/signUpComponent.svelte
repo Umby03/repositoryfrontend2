@@ -6,16 +6,18 @@
 	let email: string;
 	let password: string;
 	let ripetipassword: string;
-	const controlloemail = email.includes('@');
+	
+	let controlloemail: boolean
+	$: controlloemail =  email && email.includes('@');
 
 	async function Signup() {
 		if (controlloemail == true) {
 			if (password == ripetipassword) {
-				const response = await fetch('http://192.168.6.55:8080/auth/register', {
+				const response = await fetch('http://192.168.58.55:8080/auth/register', {
 					method: 'post',
 
 					body: JSON.stringify({
-						username,
+						name: username,
 						surname,
 						email,
 						password
@@ -27,7 +29,8 @@
 				});
 
 				const result = await response.json();
-				window.location.href='/admin/login';
+				console.log(result, 'regggggg')
+				//window.location.href='/public/login';
 			} else {
 				alert('Le password non coincidono');
 			}
@@ -38,6 +41,7 @@
 </script>
 
 <h1>Registrati Adesso</h1>
+baalablabalbal
 <br />
 <form class="row g-3 needs-validation" style="width:300px;">
 	<div class="input mb-3">
@@ -52,7 +56,7 @@
 			style="wight:20px;"
 			required
 		/>
-		<!--<div class="valid-feedback">Corretto!</div>-->
+		<div class="valid-feedback">Corretto!</div>
 	</div>
 
 	<div class="input mb-3">
@@ -108,7 +112,7 @@
 		<label class="form-check-label" for="check1">Check me out</label>
 	</div>-->
 	<center>
-		<button type="button" class="btn btn-outline-warning" on:click={Signup}><h4>Submit</h4></button>
+		<input type="submit" class="btn btn-outline-warning" on:click={Signup} value="Submit" />
 
 		<br />
 		<div

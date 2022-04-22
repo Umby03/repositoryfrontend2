@@ -1,11 +1,14 @@
 <script lang="ts">
+
+
+
 	export let toggleHasAccount: () => void;
 
 	let email: string;
 	let password: string;
 
 	async function Login() {
-		const response = await fetch('http://192.168.6.55:8080/auth/login', {
+		const response = await fetch('http://192.168.58.55:8080/auth/login', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -18,9 +21,13 @@
 			}
 		});
         
-        localStorage.setItem('Profilo', 'email');
 
 		const result = await response.json();
+
+		localStorage.setItem('Profilo', 'email');
+		localStorage.setItem('token',result.token);
+
+
 	}
 </script>
 <h1>Accedi</h1>
@@ -46,7 +53,7 @@
 		<input type="checkbox" class="form-check-input" id="exampleCheck1" />
 		<label class="form-check-label" for="exampleCheck1">Check me out</label>
 	</div>
-	<button type="button" class="btn btn-outline-warning" ><h4>Submit</h4></button>
+	<button type="button" class="btn btn-outline-warning" on:click={Login} ><h4>Submit</h4></button>
 </form>
 <div class="btn btn-link" style="color:black; padding:0%; margin-top:10px; margin-bottom:10px" on:click={toggleHasAccount}>
 	Non hai ancora un Account?
