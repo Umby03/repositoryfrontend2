@@ -1,7 +1,7 @@
 <script lang="ts">
 import { goto } from "$app/navigation";
 
-let flag=1
+import {flag} from "../../stores/store"
 
 	let nomeTorneo: string;
 	let descrizioneTorneo: string;

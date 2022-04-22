@@ -12,6 +12,8 @@
               <th scope="col">Name</th>
               <th scope="col">Organizator</th>
               <th scope="col">Player Number</th>
+              <th scope="col">Status</th>
+              <th scope="col">Sport</th>
             </tr>
           </thead>
           <tbody>
@@ -39,9 +41,11 @@
         <thead>
             <tr>
               <th scope="col">N</th>
-              <th scope="col">Name</th>
+              <th scope="col">Tournament Name</th>
               <th scope="col">Organizator</th>
-              <th scope="col">Player Number</th>
+              <th scope="col">Team Number</th>
+              <th scope="col">Status</th>
+              <th scope="col">Sport</th>
             </tr>
           </thead>
           <tbody>
