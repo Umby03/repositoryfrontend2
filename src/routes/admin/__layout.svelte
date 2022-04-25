@@ -76,7 +76,7 @@
 				  </a>
 				</li>
 				<li class="side-item"> 
-				  <a href="#" class="nav-link text-white">
+				  <a href="#" class="nav-link text-white"  class:active={link == "admin/creaClub"}  on:click={()=>{actionClick("/admin/creaClub")}}>
 					<svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
 					Crea club
 				  </a>
