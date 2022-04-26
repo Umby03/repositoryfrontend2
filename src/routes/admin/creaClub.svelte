@@ -7,7 +7,6 @@
         let descrizioneTorneo: string;
         let sportTorneo: string;
         let privato= true
-        let numeromax: number
         let ricerca: string
         let Utenti=[]
         let i=0;
@@ -91,17 +90,12 @@
 				<label for="textarea2" class="form-label">Sport Club</label>
 				<textarea  style=" height:10px;"bind:value={sportTorneo} class="form-control" id="textarea2" rows="3" />
 			</div>
-			<br>
 			  <div class="mb-3">
-             <input style="width:60px;" bind:value={numeromax} type="number" name="numeromax" id="numeromax">
-			 <label class="form-check-label" for="numeromax">
-				Numero massimo di partecipanti al club
-			 </label>
 			 </div>
 			<!--OGNI VOLTA CHE SCRIIVO ESEGUE LA QUERY DI RICERCA, SE CLICCO UN RISULTATO DEVE SCRIVERLO IN UN ELENCO-->
-
+			<p>Aggiungi amico al Club</p>
 			 <form class="form-inline my-2 my-lg-0">
-				<input bind:value={ricerca} class="form-control mr-sm-2" type="search" placeholder="Cerca" aria-label="Search">
+				<input bind:value={ricerca} class="form-control mr-sm-2" type="search" placeholder="Inserire un nome" aria-label="Search">
 				<button class="btn btn-outline-warning" type="submit" id="bottonecerca">Cerca</button>
 			  </form>
 			  {#each results as item, i}
@@ -134,7 +128,7 @@
 					class="btn btn-outline-warning" style=" margin-top:30px"
 					on:click={() => {
 					//	creazioneTorneo();
-					}}><h2>CREA CLUB</h2></button
+					}}><h2>Crea Club</h2></button
 				>
 			</div>
 		<div class="col" />

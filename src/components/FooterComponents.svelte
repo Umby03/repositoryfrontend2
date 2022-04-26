@@ -12,7 +12,7 @@ import { navigating } from '$app/stores';
 
 </script>
 
-<footer class="row row-cols-5 py-5 my-5 border-top" style="margin-top: 0!important;">
+<footer class="row row-cols-5  bg-dark" style="margin-top: 0!important;">
 	<div class="col">
 		<a href="" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 			<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
@@ -27,7 +27,9 @@ import { navigating } from '$app/stores';
 	<div class="col" />
 
 	<div class="col">
-		<h4>Link Accesibili</h4>
+		<h4 class="text-muted"></h4>
+
+		<h4 class="text-muted">Link Accesibili</h4>
 		<ul class="nav flex-column">
 			<li class="nav-item mb-2">
 				<a
@@ -52,7 +54,6 @@ import { navigating } from '$app/stores';
 			<li class="nav-item mb-2">
 				<a href="#" class="nav-link p-0 text-muted"><h6>Pricing</h6></a>
 			</li>
-			<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>FAQs</h6></a></li>
 			<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><h6>About</h6></a></li>
 		</ul>
 	</div>

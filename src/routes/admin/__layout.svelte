@@ -113,6 +113,7 @@
   #sidebarbutton{
 	margin-bottom: auto;
     margin-top: auto;
+	margin-left:4px;
   }
 
 .side-item:hover {
