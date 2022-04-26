@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-6">
       <center>
-        <h1 style="margin-top:20px">I tuoi tornei</h1>
+        <h1><b>I tuoi tornei</b></h1>
       <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
@@ -38,7 +38,7 @@
           </tbody>
        </table>
        <br />
-       <h1 style="margin-top:20px">I tuoi club</h1>
+       <h1 style="margin-top:30px"><b>I tuoi club</b></h1>
       <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
@@ -88,4 +88,9 @@
         background-image: url("https://images3.alphacoders.com/147/147407.jpg");
         background-repeat: no-repeat;
     }
+
+    h1{
+      margin-top:30px
+    }
+
 </style>
