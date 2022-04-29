@@ -1,5 +1,6 @@
 <script lang="ts">
-import { user } from "../../stores/store";
+import { onMount } from "svelte";
+
 
 //let user=JSON.parse(localStorage.getItem("Profilo"))
 
@@ -7,35 +8,44 @@ import { user } from "../../stores/store";
 //const result = api()
 //$user = result
 
+let user
+
+onMount(() => {
+console.log(localStorage.getItem("Profilo"))
+  user = JSON.parse(localStorage.getItem("Profilo"))
+
+})
+
 </script>
 <br/><br/><br/><br/>
+<center>
+<div class="col-md-3">
 <div class="container-fluid">
-    <center>
-        <div class="card" style="width: 20rem">
-            <img src={$user.image} class="card-img-top" alt="...">
-            <div class="card">
-              <h1 class="card-title">    {$user.name}              </h1>
+  <div class="d-flex w-100" style="align-items:center; gap:110px">
+    <div class="d-flex" style="align-items:center; justify-content: flex-start;">
+          <img src="https://cdn2.vectorstock.com/i/1000x1000/32/01/user-sign-icon-person-symbol-human-avatar-vector-12693201.jpg" class="card-img-top" style="width:50px; height: 50px; border-radius:50%" alt="..."> 
+</div>
+<div>
+  <h1 class="card-title">   
+    
+  <!--  {$user.profilo}             </h1> -->
+</div>
+             
+</div>
+<br/>
+<div style="height:1px; width:100%; background: black;">
+
+</div>
+
               <h2 class="card-text"><h2>Stats:</h2>
-              <h3>Tornei organizzati: {$user.tornei} </h3>
-              <h3>Tornei effettuai: {$user.giocati} </h3>
+              <!--<h3>Tornei organizzati: {$user.tornei} </h3>
+              <h3>Tornei effettuai: {$user.giocati} </h3>-->
 
               <a href="#" class="btn btn-primary">Organizza un torneo</a> <br>
               <a href="#" class="btn btn-primary">Crea un club</a>
-            </div>
-          </div>
-        </center>
 </div>
+</div>
+</center>
 
 <style>
-   :global(body){
-        background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1035676256.jpg");
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-    
-    .card{
-      background-color:cadetblue;
-      padding:0px;
-    }
-
 </style>

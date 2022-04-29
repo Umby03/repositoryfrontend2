@@ -24,7 +24,7 @@
 
 		const result = await response.json();
 
-		localStorage.setItem('Profilo', 'email');
+		localStorage.setItem('Profilo', JSON.stringify(result));
 		localStorage.setItem('token',result.token);
 
 
