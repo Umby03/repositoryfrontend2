@@ -1,3 +1,49 @@
+<script>
+  import {mockData} from "../../mock"
+  console.log(mockData)
+  let cont=0 
+  let cont2=0 
+  let results = [];
+  let results2=[];
+
+	$:{
+		if (typeof localStorage != 'undefined') {
+			fetch('http://192.168.66.55:8080/tournament/search', {
+				method: 'post',
+
+				headers: {
+					'content-type': 'application/json',
+					authorization: localStorage.getItem('token')
+				}
+			})
+				.then((resp) => resp.json())
+				.then((json) => {
+					results = json;
+				});
+		}
+	}
+
+  $: {
+		if (typeof localStorage != 'undefined') {
+			fetch('http://192.168.66.55:8080/tournament/search', {
+				method: 'post',
+
+				headers: {
+					'content-type': 'application/json',
+					authorization: localStorage.getItem('token')
+				}
+			})
+				.then((resp) => resp.json())
+				.then((json) => {
+					results2 = json;
+				});
+		}
+	}
+
+
+
+
+</script>
 
 <div class="row align-items-center justify-content-center" >
     <div class="col-md-3" id="sidebar"> 
@@ -11,29 +57,20 @@
             <tr>
               <th scope="col">N</th>
               <th scope="col">Tournament Name</th>
-              <th scope="col">Organizator</th>
-              <th scope="col">Team Number</th>
-              <th scope="col">Status</th>
-              <th scope="col">Sport</th>
+              <th scope="col">Description</th>
             </tr>
           </thead>
           <tbody>
-            {#each mockData as item,i}
-          <!--  <tr  on:click={() => {
-          window.location.href = '/admin/torneo/' + item.id
-            }}>
-          -->
+            {#each results as item,i}
+        
 
-            <tr>
-                <th scope="row">{cont+i+1}</th>
-                <td>{item.firstname}</td>
-                <td>{item.lastname}</td>
-                <td>{item.altro}</td>
-                <td>{item.altro}</td>
-                <td>{item.altro}</td>
+            <tr on:click={() => {
+              window.location.href  = '/admin/visualizzaTorneo/' + item.ID_Tournament;
+                }}>
+                <th scope="row">{cont + i}</th>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
               </tr>
-              {:else}
-              Nessun elemento
         {/each}
           </tbody>
        </table>
@@ -45,27 +82,23 @@
             <tr>
               <th scope="col">N</th>
               <th scope="col">Club Name</th>
-              <th scope="col">Club Creator</th>
-              <th scope="col">Users</th>
+              <th scope="col">BIO</th>
               <th scope="col">Sport</th>
             </tr>
           </thead>
           <tbody>
-            {#each mockData as item,i}
-          <!--  <tr  on:click={() => {
-          window.location.href = '/admin/torneo/' + item.id
-            }}>
-          -->
+            {#each results2 as item,i}
+         
 
-            <tr>
-                <th scope="row">{cont+i+1}</th>
-                <td>{item.firstname}</td>
-                <td>{item.lastname}</td>
-                <td>{item.altro}</td>
-                <td>{item.altro}</td>
-              </tr>
-              {:else}
-              Nessun elemento
+          <tr on:click={() => {
+            window.location.href  = '/admin/visualizzaClub/' + item.ID_Club;
+              }}>
+              <th scope="row">{cont + i}</th>
+              <td>{item.name}</td>
+              <td>{item.bio}</td>
+              <td>{item.name_sport}</td>
+            </tr>
+             
         {/each}
           </tbody>
        </table>
@@ -73,11 +106,7 @@
     <div class="col-md-3" id="sidebar"> 
     </div>
     </div>
-<script>
-    import {mockData} from "../../mock"
-    console.log(mockData)
-    let cont=0
-</script>
+
 
 <style>
     #sidebar{
