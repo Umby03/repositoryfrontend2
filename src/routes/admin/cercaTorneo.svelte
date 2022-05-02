@@ -1,29 +1,59 @@
 <!--TABELLA TORNEI, CON UN CERCA TORNEO CHE è NELLA NAV BAR -->
 <script lang="ts">
-	import { mockData } from '../../mock';
-	console.log(mockData);
-	let cont = 0;
+	let ricerca;
 
-	export let name: string = '';
+	let cont = 1;
+
+	//export let name: string = '';
 	let results = [];
 
-	$: {
-		fetch('http://192.168.58.55:8080/tournament/allTournament', {
-			body: JSON.stringify({ name }),
+	async function cercaTorneo() {
+		if (typeof localStorage != 'undefined') {
+			fetch('http://192.168.66.55:8080/tournament/search', {
+				method: 'post',
 
-			headers: {
-				'content-type': 'application/json',
-				authorization: localStorage.getItem('token')
-			}
-		})
-			.then((resp) => resp.json())
-			.then((json) => {
-				results = json;
-			});
+				body: JSON.stringify({ name: ricerca }),
+
+				headers: {
+					'content-type': 'application/json',
+					authorization: localStorage.getItem('token')
+				}
+			})
+				.then((resp) => resp.json())
+				.then((json) => {
+					results = json;
+				});
+		}
 	}
 </script>
 
 <!--BISOGNA FARE IL CONTROLLO PER LA NAV BAR, SE è LOGGATO NAV BAR ADMIN SE NON è LOGGATOO NAV BAR PUBLIC-->
+<br />
+<div class="row align-items-start">
+	<div class="col" />
+	<div class="col">
+		<div class="flex-container">
+			<form class="form-inline my-2 my-lg-0">
+				<input
+					bind:value={ricerca}
+					class="form-control mr-sm-2"
+					type="search"
+					placeholder="Cerca"
+					aria-label="Search"
+				/>
+				<button
+					class="btn btn-outline-success my-2 my-sm-0"
+					type="submit"
+					on:click|preventDefault={() => {
+						cercaTorneo();
+					}}>Cerca</button
+				>
+			</form>
+		</div>
+	</div>
+	<div class="col" />
+</div>
+<br />
 
 <center>
 	<table class="table table-dark table-striped" style="padding:20px">
@@ -39,19 +69,15 @@
 		</thead>
 		<tbody>
 			{#each results as item, i}
-				<!--  <tr  on:click={() => {
-      window.location.href = '/admin/torneo/' + item.id
-        }}>
-      -->
-
-				<tr>
-					<th scope="row">{cont + i + 1}</th>
-					<td>{item.firstname}</td>
-					<td>{item.lastname}</td>
-					<td>{item.altro}</td>
+				<tr
+					on:click={() => {
+						window.location.href = '/admin/visualizzaTorneo/' + item.ID_Tournament;
+					}}
+				>
+					<th scope="row">{cont + i}</th>
+					<td>{item.name}</td>
+					<td>{item.description}</td>
 				</tr>
-			{:else}
-				Nessun elemento
 			{/each}
 		</tbody>
 	</table>
