@@ -164,7 +164,7 @@
 	let ricerca;
 
 
-let results;
+let results=[];
 
 async function cercaTorneo() {
 	if (typeof localStorage != 'undefined') {
