@@ -18,17 +18,30 @@
 	<div class="d-flex h-100">
 		<form class="d-flex search-form" id="form">
 			<input
-				class="form-control"
-				type="search"
-				placeholder="Cerca un Torneo"
-				aria-label="Search"
-				style="font-size:19px"
+				    bind:value={ricerca}
+					class="form-control"
+					list="datalistOptions"
+					id="list"
+					placeholder="Cerca torneo"
+				/>
 
-			/>
-			<button class="btn btn-outline-warning" 
-			type="submit" 
-			style="font-size:17px;">
-			Cerca</button>
+				<datalist id="datalistOptions">
+					{#each results1 as item, i}
+						<option
+							value={item.name}
+							on:click={() => {
+								selezionatorneo(item.ID_Tournament);
+							}}
+						/>
+					{/each}
+
+				</datalist>
+				<button
+					class="btn btn-outline-success my-2 my-sm-0"
+					type="submit"
+					on:click|preventDefault={() => {
+						cercaTorneo();
+					}}>Cerca</button>
 		</form>&nbsp &nbsp
 		<a class="navbar-brand" href="#" on:click={()=>{actionClick("/admin/Profilo")}}>
 			<img src="https://cdn2.vectorstock.com/i/1000x1000/32/01/user-sign-icon-person-symbol-human-avatar-vector-12693201.jpg" alt="Profile banner"
@@ -147,6 +160,78 @@
 		localStorage.removeItem("Profilo")
 		localStorage.removeItem("token")
 	}
+
+	let ricerca;
+
+
+let results;
+
+async function cercaTorneo() {
+	if (typeof localStorage != 'undefined') {
+		fetch('http://192.168.66.55:8080/tournament/search', {
+			method: 'post',
+
+			body: JSON.stringify({ name: ricerca }),
+
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results = json;
+			});
+	}
+	window.location.href = '/admin/cercaTorneo' + results;
+
+}
+
+let results1;
+
+let name: string;
+ $: {
+ if (typeof localStorage != 'undefined') {
+	 //per visualizzare tutti i tornei(suggerimenti)
+	 fetch('http://192.168.66.55:8080/tournament/search', {
+
+		 method: 'post',
+		 body: JSON.stringify({name}),
+
+		 headers: {
+			 'content-type': 'application/json',
+			 authorization: localStorage.getItem('token')
+		 }
+	 })
+		 .then((resp) => resp.json())
+		 .then((json) => {
+			 results1 = json;
+		 });
+		 
+ }
+}
+
+let results2;
+
+async function selezionatorneo( id){
+//per mandare l'id del torneo selezionato
+if (typeof localStorage != 'undefined') {
+	 fetch('http://192.168.58.55:8080/tournament/searchID', {
+		 method: 'post',
+		 body: JSON.stringify({id}),
+		 headers: {
+			 'content-type': 'application/json',
+			authorization: localStorage.getItem('token')
+		 }
+	 })
+		 .then((resp) => resp.json())
+		 .then((json) => {
+			 results = json;
+		 });
+		 window.location.href = '/admin/cercaTorneo' + results;
+	 }
+ }
+
 
 
 

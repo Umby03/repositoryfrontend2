@@ -1,11 +1,66 @@
 <!--TABELLA TORNEI, CON UN CERCA TORNEO CHE è NELLA NAV BAR -->
+<script context="module">
+	export async function load({ params, fetch }) {
+		return {
+			props: {
+				results: params
+			}
+		};
+	}
+
+</script>
+
 <script lang="ts">
 	let ricerca;
 
 	let cont = 1;
 
 	//export let name: string = '';
-	let results = [];
+	let results;
+
+	let results1;
+
+let name: string;
+ $: {
+ if (typeof localStorage != 'undefined') {
+	 //per visualizzare tutti i club
+	 fetch('http://192.168.66.55:8080/tournament/search', {
+
+		 method: 'post',
+		 body: JSON.stringify({name}),
+
+		 headers: {
+			 'content-type': 'application/json',
+			 authorization: localStorage.getItem('token')
+		 }
+	 })
+		 .then((resp) => resp.json())
+		 .then((json) => {
+			 results1 = json;
+		 });
+		 
+ }
+}
+
+let results2;
+
+async function selezionatorneo( id){
+//per mandare l'id del club selezionato
+if (typeof localStorage != 'undefined') {
+	 fetch('http://192.168.58.55:8080/tournament/searchID', {
+		 method: 'post',
+		 body: JSON.stringify({id}),
+		 headers: {
+			 'content-type': 'application/json',
+			authorization: localStorage.getItem('token')
+		 }
+	 })
+		 .then((resp) => resp.json())
+		 .then((json) => {
+			 results = json;
+		 });
+	 }
+ }
 
 	async function cercaTorneo() {
 		if (typeof localStorage != 'undefined') {
@@ -34,13 +89,32 @@
 	<div class="col">
 		<div class="flex-container">
 			<form class="form-inline my-2 my-lg-0">
-				<input
+			<!--	<input
 					bind:value={ricerca}
 					class="form-control mr-sm-2"
 					type="search"
 					placeholder="Cerca"
 					aria-label="Search"
+				/>-->
+				<input
+				    bind:value={ricerca}
+					class="form-control"
+					list="datalistOptions"
+					id="list"
+					placeholder="Cerca torneo"
 				/>
+
+				<datalist id="datalistOptions">
+					{#each results1 as item, i}
+						<option
+							value={item.name}
+							on:click={() => {
+								selezionatorneo(item.ID_Tournament);
+							}}
+						/>
+					{/each}
+
+				</datalist>
 				<button
 					class="btn btn-outline-success my-2 my-sm-0"
 					type="submit"
