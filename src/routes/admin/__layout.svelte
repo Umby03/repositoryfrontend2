@@ -39,6 +39,7 @@
 
   <div class="container-fluid">
 
+
 	<slot />
 
 
@@ -91,8 +92,10 @@
 		  </div>
 		</div>
 	</div>
-<FooterComponent  />
+	<FooterComponent  />
+
 </div>
+
 
 <style lang="scss" global>
 	@import 'bootstrap/scss/bootstrap';

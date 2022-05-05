@@ -11,8 +11,7 @@ import { navigating } from '$app/stores';
 	}
 
 </script>
-<bootton></bootton>
-<footer class="row row-cols-5  bg-dark" style="margin-top: 0!important;">
+<footer class="row row-cols-5  bg-dark" style="margin-top:0!important;">
 	<div class="col">
 		<a href="" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
 			<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
