@@ -20,7 +20,7 @@
 			<input
 				class="form-control"
 				type="search"
-				placeholder="Cerca un Torneo"
+				placeholder="Search a tournament"
 				aria-label="Search"
 				style="font-size:19px"
 
@@ -28,7 +28,7 @@
 			<button class="btn btn-outline-warning" 
 			type="submit" 
 			style="font-size:17px;">
-			Cerca</button>
+			Search</button>
 		</form>&nbsp &nbsp
 		<a class="navbar-brand" href="#" on:click={()=>{actionClick("/admin/Profilo")}}>
 			<img src="https://cdn2.vectorstock.com/i/1000x1000/32/01/user-sign-icon-person-symbol-human-avatar-vector-12693201.jpg" alt="Profile banner"
@@ -96,7 +96,6 @@
 
 <style lang="scss" global>
 	@import 'bootstrap/scss/bootstrap';
-	//class:active={page == "creatorneo"}
 
   nav {
     display: flex;
@@ -146,6 +145,8 @@
 	function logout(){
 		localStorage.removeItem("Profilo")
 		localStorage.removeItem("token")
+		window.location.href = '/public/home/'
+
 	}
 
 

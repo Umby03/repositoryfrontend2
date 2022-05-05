@@ -8,14 +8,20 @@ import { onMount } from "svelte";
 //const result = api()
 //$user = result
 
-let user
+let user: any = {}
 
 onMount(() => {
 console.log(localStorage.getItem("Profilo"))
   user = JSON.parse(localStorage.getItem("Profilo"))
-
 })
 
+function funzione(){
+  window.location.href = '/admin/creazioneTorneo/'
+}
+
+function funzione1(){
+  window.location.href = '/admin/creaClub/'
+}
 </script>
 <br/><br/><br/><br/>
 <center>
@@ -27,8 +33,10 @@ console.log(localStorage.getItem("Profilo"))
 </div>
 <div>
   <h1 class="card-title">   
-    
-  <!--  {$user.profilo}             </h1> -->
+
+   {user.name}   
+
+            </h1> 
 </div>
              
 </div>
@@ -41,11 +49,15 @@ console.log(localStorage.getItem("Profilo"))
               <!--<h3>Tornei organizzati: {$user.tornei} </h3>
               <h3>Tornei effettuai: {$user.giocati} </h3>-->
 
-              <a href="#" class="btn btn-primary">Organizza un torneo</a> <br>
-              <a href="#" class="btn btn-primary">Crea un club</a>
+              <a href="#" class="btn btn-primary" on:click={()=>{(funzione())}}>Organizza un torneo</a> <br>
+              <a href="#" class="btn btn-primary" on:click={()=>{(funzione1())}}>Crea un club</a>
 </div>
 </div>
 </center>
 
 <style>
+:global(body){
+        background-color:lightgrey;
+        background-repeat: no-repeat;
+    }
 </style>

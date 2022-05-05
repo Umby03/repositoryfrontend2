@@ -32,7 +32,7 @@ import { navigating } from '$app/stores';
 		<h4 class="text-muted">Link Accesibili</h4>
 		<ul class="nav flex-column">
 			<li class="nav-item mb-2">
-				<a
+				<a href="#"
 					on:click={() => {
 						Home();
 					}}
@@ -42,7 +42,7 @@ import { navigating } from '$app/stores';
 			</li>
 
 			<li class="nav-item mb-2">
-				<a
+				<a href="#"
 					on:click={() => {
 						Chisiamo();
 					}}

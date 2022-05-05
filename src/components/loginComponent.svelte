@@ -8,7 +8,7 @@
 	let password: string;
 
 	async function Login() {
-		const response = await fetch('http://192.168.58.55:8080/auth/login', {
+		const response = await fetch('http://192.168.101.55:8080/auth/login', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -24,9 +24,15 @@
 
 		const result = await response.json();
 
+		if (!response.ok)
+		{
+			return alert("errore")
+		}
+
+
 		localStorage.setItem('Profilo', JSON.stringify(result));
 		localStorage.setItem('token',result.token);
-
+		window.location.href="/admin/primo"
 
 	}
 </script>
