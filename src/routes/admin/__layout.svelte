@@ -92,7 +92,10 @@
 		  </div>
 		</div>
 	</div>
-	<FooterComponent  />
+
+	<div class="container-fluid">
+		<FooterComponent  />
+	</div>
 
 </div>
 

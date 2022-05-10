@@ -49,8 +49,8 @@ function funzione1(){
               <!--<h3>Tornei organizzati: {$user.tornei} </h3>
               <h3>Tornei effettuai: {$user.giocati} </h3>-->
 
-              <a href="#" class="btn btn-primary" on:click={()=>{(funzione())}}>Organizza un torneo</a> <br>
-              <a href="#" class="btn btn-primary" on:click={()=>{(funzione1())}}>Crea un club</a>
+              <a href="#" class="btn btn-outline-warning" on:click={()=>{(funzione())}}>Create a tournament</a> <br>
+              <a href="#" class="btn btn-outline-warning" on:click={()=>{(funzione1())}}>Create a club</a>
 </div>
 </div>
 </center>
