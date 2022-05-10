@@ -9,8 +9,9 @@ import { navigating } from '$app/stores';
 	function Home() {
 		window.location.href='/public/home';
 	}
-
+//style="margin-top:0!important;"
 </script>
+
 <footer class="row row-cols-5  bg-dark" style="margin-top:0!important;">
 	<div class="col">
 		<a href="" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
@@ -57,3 +58,4 @@ import { navigating } from '$app/stores';
 		</ul>
 	</div>
 </footer>
+
