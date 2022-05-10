@@ -90,7 +90,8 @@ function actionClick(){
 
 <button class="btn btn-primary" on:click={()=>{actionClick()}}>prova bottone</button>
 -->
-	<FooterComponent  /> <!--page_title="pagina0"-->
+<!--page_title="pagina0"-->
+<FooterComponent  />
 </div>
 
 <style lang="scss" global>
