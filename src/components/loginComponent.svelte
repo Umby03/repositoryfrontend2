@@ -8,7 +8,7 @@
 	let password: string;
 
 	async function Login() {
-		const response = await fetch('http://192.168.151.55:8080/auth/login', {
+		const response = await fetch('http://10.10.1.29:8080/auth/login', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -23,6 +23,12 @@
         
 
 		const result = await response.json();
+
+		if (!response.ok)
+		{
+			return alert("errore")
+		}
+
 
 		localStorage.setItem('Profilo', JSON.stringify(result));
 		localStorage.setItem('token',result.token);
@@ -53,7 +59,7 @@
 		<input type="checkbox" class="form-check-input" id="exampleCheck1" />
 		<label class="form-check-label" for="exampleCheck1">Check me out</label>
 	</div>
-	<button type="button" class="btn btn-outline-warning" on:click={Login} ><h4>Submit</h4></button>
+	<button type="button" class="btn btn-outline-warning" on:click|preventDefault={Login} ><h4>Submit</h4></button>
 </form>
 <div class="btn btn-link" style="color:black; padding:0%; margin-top:10px; margin-bottom:10px" on:click={toggleHasAccount}>
 	Non hai ancora un Account?

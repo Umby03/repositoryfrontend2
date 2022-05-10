@@ -109,7 +109,6 @@
 
 <style lang="scss" global>
 	@import 'bootstrap/scss/bootstrap';
-	//class:active={page == "creatorneo"}
 
   nav {
     display: flex;
@@ -159,6 +158,8 @@
 	function logout(){
 		localStorage.removeItem("Profilo")
 		localStorage.removeItem("token")
+		window.location.href = '/public/home/'
+
 	}
 
 	let ricerca;
@@ -187,7 +188,7 @@ async function cercaTorneo() {
 
 }
 
-let results1;
+let results1=[];
 
 let name: string;
  $: {
@@ -211,7 +212,7 @@ let name: string;
  }
 }
 
-let results2;
+let results2=[];
 
 async function selezionatorneo( id){
 //per mandare l'id del torneo selezionato
