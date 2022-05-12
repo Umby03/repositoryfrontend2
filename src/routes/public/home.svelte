@@ -7,7 +7,7 @@
 </script>
 
 <br /><br /><br />
-<div class="row align-items-start">
+<div class="row align-items-start" style="margin-top:30px">
 	<div class="col">
 		<div class="container">
 			<center>
@@ -63,11 +63,11 @@
 		<div class="col" />
 	</div>
 </div>
-
+<div class="container-fluid" style="weight:100%">
 <br /> <br /> <br /> <br /> <br /> <br /> <br />
 <center> <h1>Trusted by</h1></center>
 <br /> <br />
-<div class="container">
+
 	<div class="row align-items-end">
 		<div class="col">
 			<img

@@ -11,23 +11,27 @@
 </script>
 
 <script lang="ts">
+
+import {mockData} from "../../mock"
+
 	let ricerca;
 
 	let cont = 1;
 
 	//export let name: string = '';
-	let results;
+	let results=[];
 
-	let results1;
+	let results1=[];
 
 let name: string;
  $: {
- if (typeof localStorage != 'undefined') {
+	if (typeof localStorage != 'undefined') {
+ 
 	 //per visualizzare tutti i club
-	 fetch('http://192.168.66.55:8080/tournament/search', {
+	 fetch('http://10.10.1.29:8080/tournament/allTournament', {
 
 		 method: 'post',
-		 body: JSON.stringify({name}),
+		 body: JSON.stringify({ name: ricerca}),
 
 		 headers: {
 			 'content-type': 'application/json',
@@ -39,15 +43,15 @@ let name: string;
 			 results1 = json;
 		 });
 		 
- }
+		}
 }
 
-let results2;
+let results2=[];
 
 async function selezionatorneo( id){
 //per mandare l'id del club selezionato
 if (typeof localStorage != 'undefined') {
-	 fetch('http://192.168.58.55:8080/tournament/searchID', {
+	 fetch('http://10.10.1.29:8080/tournament/tournamentID', {
 		 method: 'post',
 		 body: JSON.stringify({id}),
 		 headers: {
@@ -64,7 +68,7 @@ if (typeof localStorage != 'undefined') {
 
 	async function cercaTorneo() {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.66.55:8080/tournament/search', {
+			fetch('http://10.10.1.29:8080/tournament/allTournament', {
 				method: 'post',
 
 				body: JSON.stringify({ name: ricerca }),
@@ -88,33 +92,54 @@ if (typeof localStorage != 'undefined') {
 	<div class="col" />
 	<div class="col">
 		<div class="flex-container">
-			<form class="form-inline my-2 my-lg-0">
-			<!--	<input
+			<!--<form class="form-inline my-2 my-lg-0">
+					<input
 					bind:value={ricerca}
 					class="form-control mr-sm-2"
 					type="search"
 					placeholder="Cerca"
 					aria-label="Search"
-				/>-->
-				<input
+				/>
+				
+			<input 
 				    bind:value={ricerca}
 					class="form-control"
-					list="datalistOptions"
+					list="list"
 					id="list"
 					placeholder="Cerca torneo"
 				/>
+				<input list="list" id="list" name="list" />
 
-				<datalist id="datalistOptions">
-					{#each results1 as item, i}
+
+				<datalist id="list">
+					
+						<option value="ciao">
+							<option value="	Erika"></option>
+							
+				</datalist>-->
+				<div class="form-group">
+					<label for="autocomplete-regioni" class="sr-only">Cerca nel sito</label>
+					<input type="search" class="autocomplete" placeholder="Testo da cercare"
+					  id="autocomplete-regioni"
+					  name="autocomplete-regioni"
+					
+					  data-autocomplete='["text="erika"]'>
+                    
+					<span class="autocomplete-icon" aria-hidden="true">
+					  <svg class="icon icon-sm"><use href="/bootstrap-italia/dist/svg/sprite.svg#it-search"></use></svg>
+					</span>
+				  </div>
+			<!--	<datalist id="list">
+					{#each mockData as item, i}
 						<option
-							value={item.name}
+							value={item.firstname}
 							on:click={() => {
 								selezionatorneo(item.ID_Tournament);
 							}}
-						/>
-					{/each}
+							/>
+							{/each}
+				</datalist>-->
 
-				</datalist>
 				<button
 					class="btn btn-outline-success my-2 my-sm-0"
 					type="submit"
@@ -122,7 +147,7 @@ if (typeof localStorage != 'undefined') {
 						cercaTorneo();
 					}}>Cerca</button
 				>
-			</form>
+		<!--	</form>-->
 		</div>
 	</div>
 	<div class="col" />

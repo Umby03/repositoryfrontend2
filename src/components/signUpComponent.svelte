@@ -13,7 +13,7 @@
 	async function Signup() {
 		if (controlloemail == true) {
 			if (password == ripetipassword) {
-				const response = await fetch('http://192.168.58.55:8080/auth/register', {
+				const response = await fetch('http://10.10.1.29:8080/auth/register', {
 					method: 'post',
 
 					body: JSON.stringify({
@@ -29,8 +29,8 @@
 				});
 
 				const result = await response.json();
-				console.log(result, 'regggggg')
-				//window.location.href='/public/login';
+				
+				window.location.href='/public/login';
 			} else {
 				alert('Le password non coincidono');
 			}
@@ -41,7 +41,6 @@
 </script>
 
 <h1>Registrati Adesso</h1>
-baalablabalbal
 <br />
 <form class="row g-3 needs-validation" style="width:300px;">
 	<div class="input mb-3">
@@ -112,7 +111,7 @@ baalablabalbal
 		<label class="form-check-label" for="check1">Check me out</label>
 	</div>-->
 	<center>
-		<input type="submit" class="btn btn-outline-warning" on:click={Signup} value="Submit" />
+		<input type="submit" class="btn btn-outline-warning" on:click|preventDefault={Signup} value="Submit" />
 
 		<br />
 		<div

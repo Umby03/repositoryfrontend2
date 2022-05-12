@@ -8,12 +8,10 @@ function ActionClick(){
 }
 
 let nomeTorneo: string;
-
+let result=[];
 async function cercatorneo(){
 
-	
-	async function creazioneTorneo() {
-		const response = await fetch('http://192.168.6.55:8080/auth/', {
+		const response = await fetch('http://192.168.6.55:8080/auth/alltournament', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -27,7 +25,7 @@ async function cercatorneo(){
 
 		const result = await response.json();
 	}
-}
+
 import FooterComponent from '../../components/FooterComponents.svelte'
 /*let ciaovar=2*4
 
@@ -47,7 +45,7 @@ function actionClick(){
 <div class="container-fluid">
 	<div class="navdiv">
 		
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-right:0px;">
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="margin-right:0px; margin-left:-12px">
 		<a class="navbar-brand" href="#">
 			<img
 				src="/docs/5.1/assets/brand/bootstrap-logo.svg"
@@ -75,16 +73,15 @@ function actionClick(){
 					aria-label="Search"
 					style="font-size:19px;"
 				/>
-				<button class="btn btn-outline-warning"  on:click={()=>{cercatorneo()}} type="submit" style="font-size:17px;">Search</button
+				<button class="btn btn-outline-warning"  on:click={()=>{cercatorneo()}} type="submit" style="font-size:17px; margin-right:10%">Search</button
 				>
 			</form>
 		</div>
 	</nav>
+</div>
+</div>
 
-</div>
-</div>
- <br/> <br/><br/>
-	<div class="container-fluid" >
+	<div class="container-fluid" style="background-color:#333333">
 	<slot />
 <!--{ciaovar}
 

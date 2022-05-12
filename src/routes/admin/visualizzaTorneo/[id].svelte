@@ -16,7 +16,7 @@
 
 
 	onMount(async () => {
-		const response = await fetch('http://192.168.66.55:8080/tournament/searchID', {
+		const response = await fetch('http://192.168.151.55:8080/tournament/searchID', {
 			method: 'post',
 			body: JSON.stringify({ ID_Tournament: id }),
 			headers: {
@@ -29,13 +29,13 @@
 		torneo = json;
 	});
 
-  let results;
-  let results2;
+  let results=[];
+  let results2=[];
  
 	async function unisciti (){
 		//iscriversi come utente normale
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.58.55:8080/tournament/', {
+            fetch('http://192.168.58.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
@@ -45,6 +45,23 @@
                 .then((resp) => resp.json())
                 .then((json) => {
                     results = json;
+                });
+			}
+        }
+
+		async function uniscitiClub (){
+		//iscriversi come club
+		if (typeof localStorage != 'undefined') {
+            fetch('http://192.168.58.55:8080/tournament/', { //mettere il percorso giusto
+    
+                headers: {
+                    'content-type': 'application/json',
+                   authorization: localStorage.getItem('token')
+                }
+            })
+                .then((resp) => resp.json())
+                .then((json) => {
+                    results2 = json;
                 });
 			}
         }
@@ -95,6 +112,7 @@ async function selezionaclub( id){
 </script>
 
 {#if torneo}
+ SE IL TORNEO è PRIVATO VISUALIZZO INSERIRE IL CODICE DI INGRESSO, IL CODICE DI INGRESSO CORRETTO TI MANDA ALLA PAGINA DOVE PUOI SCEGLIERE COME REGISTRARTI
 	<center>
 		<h1>{torneo.name}</h1>
 	</center>
@@ -108,6 +126,14 @@ async function selezionaclub( id){
 			on:click={() => {
 				unisciti();
 			}}><h2>ISCRIVITI</h2></button
+		>
+		<button
+			type="button"
+			class="btn btn-outline-warning"
+			style=" margin-top:30px"
+			on:click={() => {
+				uniscitiClub();
+			}}><h2>ISCRIVITI COME CLUB</h2></button
 		>
 
        

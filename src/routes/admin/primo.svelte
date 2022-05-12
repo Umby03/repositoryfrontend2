@@ -8,7 +8,7 @@
 
 	$:{
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.66.55:8080/tournament/search', {
+			fetch('http://10.10.1.29:8080/tournament/search', {
 				method: 'post',
 
 				headers: {
@@ -25,7 +25,7 @@
 
   $: {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.66.55:8080/tournament/search', {
+			fetch('http://10.10.1.29:8080/tournament/search', {
 				method: 'post',
 
 				headers: {
@@ -50,7 +50,7 @@
     </div>
     <div class="col-md-6">
       <center>
-        <h1><b>Your tournaments</b></h1>
+        <h1><b>I tuoi tornei</b></h1>
       <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
@@ -75,7 +75,7 @@
           </tbody>
        </table>
        <br />
-       <h1 style="margin-top:30px"><b>Your clubs</b></h1>
+       <h1 style="margin-top:30px"><b>I tuoi club</b></h1>
       <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
