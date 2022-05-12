@@ -8,7 +8,7 @@
 
 	$:{
 		if (typeof localStorage != 'undefined') {
-			fetch('http://10.10.1.29:8080/tournament/search', {
+			fetch('http://192.168.114.55:8080/tournament/search', {
 				method: 'post',
 
 				headers: {
@@ -25,7 +25,7 @@
 
   $: {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://10.10.1.29:8080/tournament/search', {
+			fetch('http://192.168.114.55:8080/tournament/search', {
 				method: 'post',
 
 				headers: {
@@ -44,6 +44,9 @@
 
 
 </script>
+
+
+
 
 <div class="row align-items-center justify-content-center" >
     <div class="col-md-3" id="sidebar"> 

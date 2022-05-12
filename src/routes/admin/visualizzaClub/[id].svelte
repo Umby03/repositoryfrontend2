@@ -15,10 +15,11 @@
 
 	export let id: string;
 	let club;
+	let Utenti;
 
 
 	onMount(async () => {
-		const response = await fetch('http://192.168.66.55:8080/Club/searchID', {
+		const response = await fetch('http://192.168.114.55:8080/Club/searchID', {
 			method: 'post',
 			body: JSON.stringify({ ID_Club: id }),
 			headers: {
@@ -31,11 +32,26 @@
 		club = json;
 	});
 
+
+	async function utenti(){
+		const response1= await fetch('http://192.168.114.55:8080/Club/utenti',{
+			method: 'post',
+			body: JSON.stringify({ ID_Club: id }),
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		});
+
+		const json = await response1.json();
+		Utenti = json;
+	}
+
 </script>
 
 {#if club}
 
-<h1><b>I tuoi tornei</b></h1>
+<h1><b>Utenti del Club</b></h1>
 <br />  <br /> 
  <table class="table table-dark table-striped">
   <thead>
@@ -46,7 +62,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each club.users as item,i}
+      {#each Utenti as item,i}
       <tr>
           <th scope="row">{cont + i}</th>
           <td>{item.name}</td>

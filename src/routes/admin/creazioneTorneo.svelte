@@ -18,7 +18,7 @@
 		if (typeof localStorage != 'undefined') {
 			
 
-			fetch('http://192.168.66.55:8080/user/search', {
+			fetch('http://192.168.114.55:8080/user/search', {
 				method:'post',
 
 				headers: {
@@ -37,7 +37,7 @@
 		if (typeof localStorage != 'undefined') {
 			
 
-			fetch('http://192.168.66.55:8080/user/search', {
+			fetch('http://192.168.114.55:8080/user/search', {
 				method:'post',
 
 				headers: {
@@ -54,7 +54,7 @@
 
 
 	async function creazioneTorneo() {
-		const response = await fetch('http://192.168.66.55:8080/tournament/create', {
+		const response = await fetch('http://192.168.114.55:8080/tournament/create', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -149,27 +149,7 @@
 				</label>
 			</div>
 		
-
-
-			<button
-				type="button"
-				class="btn btn-outline-warning"
-				style=" margin-top:30px"
-				on:click={() => {
-					invitaUtente();
-				}}><h2>INVITA UTENTE</h2></button
-			>
-
-			<button
-				type="button"
-				class="btn btn-outline-warning"
-				style=" margin-top:30px"
-				on:click={() => {
-					invitaSquadra();
-				}}><h2>INVITA SQUADRA</h2></button
-			>	
-		
-			<!--<form class="form-inline my-2 my-lg-0">
+			<form class="form-inline my-2 my-lg-0">
 				<input
 					bind:value={ricerca}
 					class="form-control mr-sm-2"

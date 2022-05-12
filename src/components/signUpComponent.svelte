@@ -13,7 +13,7 @@
 	async function Signup() {
 		if (controlloemail == true) {
 			if (password == ripetipassword) {
-				const response = await fetch('http://10.10.1.29:8080/auth/register', {
+				const response = await fetch('http://192.168.114.55:8080/auth/register', {
 					method: 'post',
 
 					body: JSON.stringify({

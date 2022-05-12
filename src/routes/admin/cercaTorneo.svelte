@@ -1,16 +1,15 @@
 <!--TABELLA TORNEI, CON UN CERCA TORNEO CHE è NELLA NAV BAR -->
-<script context="module">
-	export async function load({ params, fetch }) {
-		return {
-			props: {
-				results: params
-			}
-		};
-	}
 
-</script>
+
 
 <script lang="ts">
+import { onMount } from 'svelte';
+let results =[]
+
+onMount(async () => {
+results= JSON.parse(localStorage.getItem("torneo")) 
+console.log(results)
+});
 
 import {mockData} from "../../mock"
 
@@ -19,16 +18,16 @@ import {mockData} from "../../mock"
 	let cont = 1;
 
 	//export let name: string = '';
-	let results=[];
+/*	let results=[];
 
 	let results1=[];
 
-let name: string;
+ let name: string;
  $: {
 	if (typeof localStorage != 'undefined') {
  
 	 //per visualizzare tutti i club
-	 fetch('http://10.10.1.29:8080/tournament/allTournament', {
+	 fetch('http://192.168.114.55:8080/tournament/allTournament', {
 
 		 method: 'post',
 		 body: JSON.stringify({ name: ricerca}),
@@ -51,7 +50,7 @@ let results2=[];
 async function selezionatorneo( id){
 //per mandare l'id del club selezionato
 if (typeof localStorage != 'undefined') {
-	 fetch('http://10.10.1.29:8080/tournament/tournamentID', {
+	 fetch('http://192.168.114.55:8080/tournament/tournamentID', {
 		 method: 'post',
 		 body: JSON.stringify({id}),
 		 headers: {
@@ -68,7 +67,7 @@ if (typeof localStorage != 'undefined') {
 
 	async function cercaTorneo() {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://10.10.1.29:8080/tournament/allTournament', {
+			fetch('http://192.168.114.55:8080/tournament/allTournament', {
 				method: 'post',
 
 				body: JSON.stringify({ name: ricerca }),
@@ -84,6 +83,8 @@ if (typeof localStorage != 'undefined') {
 				});
 		}
 	}
+
+	*/
 </script>
 
 <!--BISOGNA FARE IL CONTROLLO PER LA NAV BAR, SE è LOGGATO NAV BAR ADMIN SE NON è LOGGATOO NAV BAR PUBLIC-->
@@ -92,8 +93,8 @@ if (typeof localStorage != 'undefined') {
 	<div class="col" />
 	<div class="col">
 		<div class="flex-container">
-			<!--<form class="form-inline my-2 my-lg-0">
-					<input
+			<!--	<form class="form-inline my-2 my-lg-0">
+				<input
 					bind:value={ricerca}
 					class="form-control mr-sm-2"
 					type="search"
@@ -108,27 +109,20 @@ if (typeof localStorage != 'undefined') {
 					id="list"
 					placeholder="Cerca torneo"
 				/>
-				<input list="list" id="list" name="list" />
+
+
+				<input type="text" list="list" />
 
 
 				<datalist id="list">
 					
-						<option value="ciao">
-							<option value="	Erika"></option>
+							<option value="Erika">Erika</option>
+							<option value="Erika222">Erika2</option>
 							
-				</datalist>-->
-				<div class="form-group">
-					<label for="autocomplete-regioni" class="sr-only">Cerca nel sito</label>
-					<input type="search" class="autocomplete" placeholder="Testo da cercare"
-					  id="autocomplete-regioni"
-					  name="autocomplete-regioni"
-					
-					  data-autocomplete='["text="erika"]'>
-                    
-					<span class="autocomplete-icon" aria-hidden="true">
-					  <svg class="icon icon-sm"><use href="/bootstrap-italia/dist/svg/sprite.svg#it-search"></use></svg>
-					</span>
-				  </div>
+				</datalist>
+
+				-->
+				
 			<!--	<datalist id="list">
 					{#each mockData as item, i}
 						<option
@@ -138,7 +132,7 @@ if (typeof localStorage != 'undefined') {
 							}}
 							/>
 							{/each}
-				</datalist>-->
+				</datalist>
 
 				<button
 					class="btn btn-outline-success my-2 my-sm-0"
@@ -147,7 +141,7 @@ if (typeof localStorage != 'undefined') {
 						cercaTorneo();
 					}}>Cerca</button
 				>
-		<!--	</form>-->
+			</form>-->
 		</div>
 	</div>
 	<div class="col" />
@@ -176,6 +170,10 @@ if (typeof localStorage != 'undefined') {
 					<th scope="row">{cont + i}</th>
 					<td>{item.name}</td>
 					<td>{item.description}</td>
+					<td>{item.NumeroSquadre}</td>
+					<td>{item.inProgress}</td>
+					<td>{item.name_sport}</td>
+
 				</tr>
 			{/each}
 		</tbody>

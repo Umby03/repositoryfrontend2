@@ -99,7 +99,5 @@
 	</div>
 </div>
 
-<style lang="scss" global>
-	@import 'bootstrap/scss/bootstrap';
-	
+<style lang="scss">	
 </style>
