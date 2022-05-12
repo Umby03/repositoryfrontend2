@@ -25,7 +25,7 @@
 					placeholder="Cerca torneo"
 				/>
 
-				<datalist id="datalistOptions">
+				<!--<datalist id="datalistOptions">
 					{#each results1 as item, i}
 						<option
 							value={item.name}
@@ -35,7 +35,7 @@
 						/>
 					{/each}
 
-				</datalist>
+				</datalist>-->
 				<button
 					class="btn btn-outline-success my-2 my-sm-0"
 					type="submit"
@@ -110,8 +110,7 @@
 </div>
 
 
-<style lang="scss" global>
-	@import 'bootstrap/scss/bootstrap';
+<style lang="scss">
 
   nav {
     display: flex;
@@ -169,10 +168,10 @@
 
 
 let results=[];
-
+let name:string;
 async function cercaTorneo() {
 	if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.66.55:8080/tournament/search', {
+		fetch('http://192.168.114.55:8080/tournament/allTournament', {
 			method: 'post',
 
 			body: JSON.stringify({ name: ricerca }),
@@ -185,42 +184,27 @@ async function cercaTorneo() {
 			.then((resp) => resp.json())
 			.then((json) => {
 				results = json;
-			});
+				localStorage.setItem("torneo", JSON.stringify(results));
+	window.location.href = '/admin/cercaTorneo' 
+			});	
+
 	}
-	window.location.href = '/admin/cercaTorneo' + results;
+
+
 
 }
 
 let results1=[];
 
-let name: string;
- $: {
- if (typeof localStorage != 'undefined') {
-	 //per visualizzare tutti i tornei(suggerimenti)
-	 fetch('http://192.168.66.55:8080/tournament/search', {
 
-		 method: 'post',
-		 body: JSON.stringify({name}),
 
-		 headers: {
-			 'content-type': 'application/json',
-			 authorization: localStorage.getItem('token')
-		 }
-	 })
-		 .then((resp) => resp.json())
-		 .then((json) => {
-			 results1 = json;
-		 });
-		 
- }
-}
 
-let results2=[];
+/*let results2=[];
 
 async function selezionatorneo( id){
 //per mandare l'id del torneo selezionato
 if (typeof localStorage != 'undefined') {
-	 fetch('http://192.168.58.55:8080/tournament/searchID', {
+	 fetch('http://192.168.114.55:8080/tournament/searchID', {
 		 method: 'post',
 		 body: JSON.stringify({id}),
 		 headers: {
@@ -235,6 +219,7 @@ if (typeof localStorage != 'undefined') {
 		 window.location.href = '/admin/cercaTorneo' + results;
 	 }
  }
+ */
 
 
 

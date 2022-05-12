@@ -11,7 +11,7 @@ let nomeTorneo: string;
 let result=[];
 async function cercatorneo(){
 
-		const response = await fetch('http://192.168.6.55:8080/auth/alltournament', {
+		const response = await fetch('http://192.168.114.55:8080/auth/alltournament', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -91,9 +91,7 @@ function actionClick(){
 <FooterComponent  />
 </div>
 
-<style lang="scss" global>
-	@import 'bootstrap/scss/bootstrap';
-	
+<style lang="scss">	
 	.navdiv{
 		position:fixed;
 		top:0;

@@ -13,6 +13,5 @@
     </div>
   </nav>
 
-  <style lang="scss" global>
-	@import 'bootstrap/scss/bootstrap';
+  <style lang="scss">
 </style>

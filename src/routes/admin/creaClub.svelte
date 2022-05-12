@@ -11,7 +11,7 @@
     
     async function invitaUtente() {
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.58.55:8080/tournament/allTournament', {
+            fetch('http://192.168.114.55:8080/tournament/allTournament', {
     
                 headers: {
                     'content-type': 'application/json',
@@ -28,7 +28,7 @@
     
       
       	async function creazioneClub() {
-		const response = await fetch('http://192.168.58.55:8080/tournament/create', {
+		const response = await fetch('http://192.168.114.55:8080/tournament/create', {
 			method: 'post',
 
 			body: JSON.stringify({
