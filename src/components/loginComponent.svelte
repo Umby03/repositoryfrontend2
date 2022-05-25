@@ -8,7 +8,7 @@
 	let password: string;
 
 	async function Login() {
-		const response = await fetch('http://192.168.114.55:8080/auth/login', {
+		const response = await fetch('http://192.168.210.55:8080/auth/login', {
 			method: 'post',
 
 			body: JSON.stringify({

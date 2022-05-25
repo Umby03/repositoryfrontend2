@@ -24,70 +24,80 @@
 
 	let ricerca;
 
-	let results = [];
 
-	async function cercaTorneo() {
-		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.66.55:8080/tournament/search', {
-				method: 'post',
+let results=[];
+let name:string;
+async function cercaTorneo() {
+	if (typeof localStorage != 'undefined') {
+		fetch('http://192.168.210.55:8080/tournament/allTournament', {
+			method: 'post',
 
-				body: JSON.stringify({ name: ricerca }),
+			body: JSON.stringify({ name: ricerca }),
 
-				headers: {
-					'content-type': 'application/json',
-					authorization: localStorage.getItem('token')
-				}
-			})
-				.then((resp) => resp.json())
-				.then((json) => {
-					results = json;
-				});
-		}
-		window.location.href = '/admin/cercaTorneo' + results;
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results = json;
+				localStorage.setItem("torneo", JSON.stringify(results));
+	window.location.href = '/admin/cercaTorneo' 
+			});	
+
+	}
+}
+
+let results1=[]
+
+$: if (typeof localStorage != 'undefined') {
+		fetch('http://192.168.210.55:8080/tournament/search', {
+			method: 'post',
+
+			body: JSON.stringify({name: ricerca}),
+
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results1 = json;
+				
+			});	
+
 	}
 
-	let results1 = [];
+let results2=[]
+async function selezionatorneo( id) {
+	if (typeof localStorage != 'undefined') {
+		fetch('http://192.168.210.55:8080/tournament/allTournament', {
+			method: 'post',
 
-	let name: string;
-	$: {
-		if (typeof localStorage != 'undefined') {
-			//per visualizzare tutti i tornei(suggerimenti)
-			fetch('http://192.168.66.55:8080/tournament/search', {
-				method: 'post',
-				body: JSON.stringify({ name }),
+			body: JSON.stringify({id}),
 
-				headers: {
-					'content-type': 'application/json',
-					authorization: localStorage.getItem('token')
-				}
-			})
-				.then((resp) => resp.json())
-				.then((json) => {
-					results1 = json;
-				});
-		}
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results2 = json;
+				localStorage.setItem("torneo", JSON.stringify(results2));
+	window.location.href = '/admin/cercaTorneo' 
+			});	
+
 	}
+}
 
-	let results2 = [];
 
-	async function selezionatorneo(id) {
-		//per mandare l'id del torneo selezionato
-		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.58.55:8080/tournament/searchID', {
-				method: 'post',
-				body: JSON.stringify({ id }),
-				headers: {
-					'content-type': 'application/json',
-					authorization: localStorage.getItem('token')
-				}
-			})
-				.then((resp) => resp.json())
-				.then((json) => {
-					results = json;
-				});
-			window.location.href = '/admin/cercaTorneo' + results;
-		}
-	}
+
+
+
+
 </script>
 
 <div id="container">
@@ -126,7 +136,7 @@
 		</a>
 
 		<div class="d-flex h-100">
-			<form class="d-flex search-form" id="form">
+			<form class="d-flex search-form" id="form" list="datalistOptions">
 				<input
 					bind:value={ricerca}
 					class="form-control"
@@ -134,8 +144,9 @@
 					id="list"
 					placeholder="Cerca torneo"
 				/>
+			
 
-				<!--<datalist id="datalistOptions">
+				<datalist id="datalistOptions">
 					{#each results1 as item, i}
 						<option
 							value={item.name}
@@ -145,7 +156,7 @@
 						/>
 					{/each}
 
-				</datalist>-->
+				</datalist>
 				<button
 					class="btn btn-outline-warning"
 					type="submit"
@@ -296,4 +307,8 @@
 		flex-direction: column;
 		height: 100%;
 	}
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 8064e2d2104060441613e7d77dcf4d06dc4d529c

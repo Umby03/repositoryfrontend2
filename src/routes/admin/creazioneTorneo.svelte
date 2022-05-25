@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import { each } from 'svelte/internal';
 
 	import { flag } from '../../stores/store';
 
@@ -9,17 +11,103 @@
 	let isPrivate = true;
 	let user_for_team: number;
 	let ricerca: string;
-	let Utenti = [];
-	let i = 0;
-	let selezionato: string;
-	let results;
+	let ricerca2: string;
+	let nomeTeam: string;
 
-	async function invitaUtente() {
+	let results1 = [];
+
+	function searchUtente (){
 		if (typeof localStorage != 'undefined') {
-			
 
-			fetch('http://192.168.114.55:8080/user/search', {
-				method:'post',
+		if (ricerca && ricerca.startsWith(" ")) {
+		/*	const idx = Number(ricerca.replace("#", ""))
+			const x = results1[idx]
+			ricerca = x.email*/
+			let idUser = null
+            const x = ricerca.trim()
+			results1.forEach(element => {
+				if(element.email == x){
+					idUser = element.ID_User
+					return
+				}
+			});
+
+			if(idUser != null){
+				selezionaUtente(idUser)
+				idUser = null
+			}
+			
+		} else {
+
+		fetch('http://192.168.210.55:8080/user/search', {
+			method: 'post',
+
+			body: JSON.stringify({ email: ricerca }),
+
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results1 = json;
+			
+			});
+	}}
+	}
+    
+	let results3=[];
+
+
+	function searchUtenteTeam (){
+		if (typeof localStorage != 'undefined') {
+
+		if (ricerca2 && ricerca2.startsWith(" ")) {
+		
+			let idUser2 = null
+            const x2 = ricerca2.trim()
+			results3.forEach(element => {
+				if(element.email == x2){
+					idUser2 = element.ID_User
+					return
+				}
+			});
+
+			if(idUser2 != null){
+				selezionaUtenteTeam(idUser2)
+				idUser2 = null
+			}
+			
+		} else {
+
+		fetch('http://192.168.210.55:8080/user/search', {
+			method: 'post',
+
+			body: JSON.stringify({ email: ricerca2 }),
+
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		})
+			.then((resp) => resp.json())
+			.then((json) => {
+				results3 = json;
+			
+			});
+	}}
+	}
+
+
+
+
+	async function selezionaUtente(id) {
+		if (typeof localStorage != 'undefined') {
+			fetch('http://192.168.210.55:8080/team/create', {
+				method: 'post',
+
+				body: JSON.stringify({ ID_User: id, ID_Tournament: result.ID_Tournament }),
 
 				headers: {
 					'content-type': 'application/json',
@@ -28,17 +116,27 @@
 			})
 				.then((resp) => resp.json())
 				.then((json) => {
-					results = json;
+					results2 = json;
 				});
 		}
 	}
 
-	async function invitaSquadra() {
-		if (typeof localStorage != 'undefined') {
-			
+	let results4: {
+		ID_Team?: number;
+	} = {};
 
-			fetch('http://192.168.114.55:8080/user/search', {
-				method:'post',
+	let results2 = [];
+	
+
+	async function selezionaUtenteTeam(id) {
+		if (typeof localStorage != 'undefined') {
+
+
+			if(! results4.ID_Team){
+				fetch('http://192.168.210.55:8080/team/createMultipleTeam', {
+				method: 'post',
+
+				body: JSON.stringify({ ID_User: id, ID_Tournament: result.ID_Tournament, name: nomeTeam }),
 
 				headers: {
 					'content-type': 'application/json',
@@ -47,14 +145,40 @@
 			})
 				.then((resp) => resp.json())
 				.then((json) => {
-					results = json;
+					results4 = json;
+					
 				});
+
+			} else{
+			fetch('http://192.168.210.55:8080/team/createMultipleTeam', {
+				method: 'post',
+
+				body: JSON.stringify({ ID_User: id, ID_Tournament: result.ID_Tournament, ID_Team: results4.ID_Team}),
+
+				headers: {
+					'content-type': 'application/json',
+					authorization: localStorage.getItem('token')
+				}
+			})
+				.then((resp) => resp.json())
+				.then((json) => {
+					results4 = json;
+					
+				});
+			}
 		}
 	}
 
+	//controllo su quello che mi manda( esempio ho già inserito l'utente)
+
+	
+    let result: {
+		ID_Tournament?: number;
+	} = {};
+	let torneocreato = 0;
 
 	async function creazioneTorneo() {
-		const response = await fetch('http://192.168.114.55:8080/tournament/create', {
+		const response = await fetch('http://192.168.210.55:8080/tournament/create', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -71,7 +195,9 @@
 			}
 		});
 
-		const result = await response.json();
+		result = await response.json();
+
+		torneocreato = 1;
 	}
 
 	/*if(!localStorage.getItem('Profilo')){
@@ -148,47 +274,6 @@
 					Inserisci il numero massimo di partecipanti per ogni squadra
 				</label>
 			</div>
-		
-			<form class="form-inline my-2 my-lg-0">
-				<input
-					bind:value={ricerca}
-					class="form-control mr-sm-2"
-					type="search"
-					placeholder="Cerca"
-					aria-label="Search"
-				/>
-				<br>
-				<button
-					class="btn btn-outline-success my-2 my-sm-0"
-					type="submit"
-					on:click|preventDefault={() => {
-						inserisciUtente();
-					}}>Cerca</button
-				>
-			</form>
-
-			{#each results as item, i}
-				<tr>
-					<td
-						value={selezionato}
-						on:click={() => {
-							selezionaUtente();
-						}}>{item.element}</td
-					>
-				</tr>
-			{:else}
-				Nessun elemento
-			{/each}
-			
-			<br />
-
-			{#if ( results )}
-				<tr>
-					<td>{results.email}</td>
-				</tr>
-				
-			{/if}-->
-
 
 			<button
 				type="button"
@@ -199,6 +284,78 @@
 				}}><h2>CREA TORNEO</h2></button
 			>
 		</div>
-		<div class="col" />
+
+		<div class="col">
+			{#if (torneocreato == 1)}
+				{#if user_for_team < 2}
+					<label class="form-check-label" for="form-inline my-2 my-lg-0">Inserisci Utente </label>
+
+					<form class="d-flex search-form" id="form" >
+						<input
+							bind:value={ricerca}
+							on:change={searchUtente}
+							on:keydown={searchUtente}
+							class="form-control mr-sm-2"
+							type="search"
+							placeholder="Cerca Utente"
+							aria-label="Search"
+							style="height:40px; margin-top:5px;"
+							list="datalistOptions3"
+						/>
+						<datalist id="datalistOptions3">
+							{#each results1 as item, i}
+							<!--	<option
+									value={"#" + i}	
+								>{item.email}</option>
+								-->
+
+								<option value={" " + item.email}></option>
+							{/each}
+						</datalist>
+						<br /></form>
+						<!--<button
+							type="button"
+							class="btn btn-outline-warning"
+							style=" margin-left:10px"
+							on:click={() => {
+								iscriviUtente();
+							}}>Inserisci Utente</button
+						>
+					
+
+					Utenti inseriti:
+					<ul>
+						{#each utenti as item, c}
+							<li>{item}</li>
+						{/each}
+					</ul>-->
+				{:else}
+				<input type="text" placeholder="Inserisci il nome del team" bind:value={nomeTeam}> 
+				<label class="form-check-label" for="form-inline my-2 my-lg-0">Inserisci Utente </label>
+
+				<form class="d-flex search-form" id="form" >
+					<input
+						bind:value={ricerca2}
+						on:change={searchUtenteTeam}
+						on:keydown={searchUtenteTeam}
+						class="form-control mr-sm-2"
+						type="search"
+						placeholder="Cerca Utente"
+						aria-label="Search"
+						style="height:40px; margin-top:5px;"
+						list="datalistOptions6"
+					/>
+					<datalist id="datalistOptions6">
+						{#each results3 as item, i}
+							<option value={" " + item.email}></option>
+						{/each}
+					</datalist>
+					<br /></form>
+			
+
+			
+				{/if}
+			{/if}
+		</div>
 	</div>
 </div>

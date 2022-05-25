@@ -11,7 +11,7 @@ let nomeTorneo: string;
 let result=[];
 async function cercatorneo(){
 
-		const response = await fetch('http://192.168.114.55:8080/auth/alltournament', {
+		const response = await fetch('http://192.168.210.55:8080/auth/alltournament', {
 			method: 'post',
 
 			body: JSON.stringify({
