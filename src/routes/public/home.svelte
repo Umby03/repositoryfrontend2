@@ -11,7 +11,7 @@
 	<div class="col">
 		<div class="container">
 			<center>
-				<h1>Affidati a noi per gestire il tuo torneo!!</h1>
+				<b style="text-color:aliceblue; text-size:20px;">Affidati a noi per gestire il tuo torneo!!</b>
 				<br /><br /><br />
 				<h3>
 					Basta più calcoli, con noi potrai organizzare il tuo torneo facilmente e gestirlo
@@ -100,4 +100,5 @@
 </div>
 
 <style lang="scss">	
+
 </style>
