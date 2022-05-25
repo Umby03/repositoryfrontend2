@@ -103,7 +103,7 @@ async function selezionatorneo( id) {
 <div id="container">
 	<nav class="bg-light">
 		<button
-			class="btn btn-outline-warning"
+			class="btn btn-dark"
 			type="button"
 			data-bs-toggle="offcanvas"
 			data-bs-target="#offcanvasExample"

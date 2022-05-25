@@ -27,9 +27,8 @@ import { navigating } from '$app/stores';
 	<div class="col" />
 
 	<div class="col">
-		<h4 class="text-muted"></h4>
 
-		<h4 class="text-muted">Link Accesibili</h4>
+		<h5 class="text-muted">Link Accesibili</h5>
 		<ul class="nav flex-column">
 			<li class="nav-item mb-2">
 				<a href="#"
