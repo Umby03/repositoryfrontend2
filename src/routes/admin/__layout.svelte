@@ -370,4 +370,8 @@ async function selezionatorneo( id) {
 		flex-direction: column;
 		height: 100%;
 	}
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 8064e2d2104060441613e7d77dcf4d06dc4d529c
