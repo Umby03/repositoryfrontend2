@@ -27,7 +27,7 @@ import {mockData} from "../../mock"
 	if (typeof localStorage != 'undefined') {
  
 	 //per visualizzare tutti i club
-	 fetch('http://192.168.210.55:8080/tournament/allTournament', {
+	 fetch('http://192.168.185.55:8080/tournament/allTournament', {
 
 		 method: 'post',
 		 body: JSON.stringify({ name: ricerca}),
@@ -50,7 +50,7 @@ let results2=[];
 async function selezionatorneo( id){
 //per mandare l'id del club selezionato
 if (typeof localStorage != 'undefined') {
-	 fetch('http://192.168.210.55:8080/tournament/tournamentID', {
+	 fetch('http://192.168.185.55:8080/tournament/tournamentID', {
 		 method: 'post',
 		 body: JSON.stringify({id}),
 		 headers: {
@@ -67,7 +67,7 @@ if (typeof localStorage != 'undefined') {
 
 	async function cercaTorneo() {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.210.55:8080/tournament/allTournament', {
+			fetch('http://192.168.185.55:8080/tournament/allTournament', {
 				method: 'post',
 
 				body: JSON.stringify({ name: ricerca }),
@@ -158,6 +158,8 @@ if (typeof localStorage != 'undefined') {
 				<th scope="col">Numero team</th>
 				<th scope="col">In Corso</th>
 				<th scope="col">Sport</th>
+				<th scope="col">Nome Admin</th>
+				<th scope="col">Cognome Admin</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -173,6 +175,8 @@ if (typeof localStorage != 'undefined') {
 					<td>{item.NumeroSquadre}</td>
 					<td>{item.inProgress}</td>
 					<td>{item.name_sport}</td>
+					<td>{item.NomeAdmin}</td>
+					<td>{item.CognomeAdmin}</td>
 
 				</tr>
 			{/each}
