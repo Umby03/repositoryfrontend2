@@ -19,7 +19,7 @@
 
 
 	onMount(async () => {
-		const response = await fetch('http://192.168.185.55:8080/Club/searchID', {
+		const response = await fetch('http://192.168.43.55:8080/Club/searchID', {
 			method: 'post',
 			body: JSON.stringify({ ID_Club: id }),
 			headers: {
@@ -34,7 +34,7 @@
 
 
 	async function utenti(){
-		const response1= await fetch('http://192.168.185.55:8080/Club/utenti',{
+		const response1= await fetch('http://192.168.43.55:8080/Club/utenti',{
 			method: 'post',
 			body: JSON.stringify({ ID_Club: id }),
 			headers: {

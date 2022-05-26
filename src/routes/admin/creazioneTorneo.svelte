@@ -39,7 +39,7 @@
 			
 		} else {
 
-		fetch('http://192.168.185.55:8080/user/search', {
+		fetch('http://192.168.43.55:8080/user/search', {
 			method: 'post',
 
 			body: JSON.stringify({ email: ricerca }),
@@ -81,7 +81,7 @@
 			
 		} else {
 
-		fetch('http://192.168.185.55:8080/user/search', {
+		fetch('http://192.168.43.55:8080/user/search', {
 			method: 'post',
 
 			body: JSON.stringify({ email: ricerca2 }),
@@ -104,7 +104,7 @@
 
 	async function selezionaUtente(id) {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.185.55:8080/team/create', {
+			fetch('http://192.168.43.55:8080/team/create', {
 				method: 'post',
 
 				body: JSON.stringify({ ID_User: id, ID_Tournament: result.ID_Tournament }),
@@ -133,7 +133,7 @@
 
 
 			if(! results4.ID_Team){
-				fetch('http://192.168.185.55:8080/team/createMultipleTeam', {
+				fetch('http://192.168.43.55:8080/team/createMultipleTeam', {
 				method: 'post',
 
 				body: JSON.stringify({ ID_User: id, ID_Tournament: result.ID_Tournament, name: nomeTeam }),
@@ -150,7 +150,7 @@
 				});
 
 			} else{
-			fetch('http://192.168.185.55:8080/team/createMultipleTeam', {
+			fetch('http://192.168.43.55:8080/team/createMultipleTeam', {
 				method: 'post',
 
 				body: JSON.stringify({ ID_User: id, ID_Tournament: result.ID_Tournament, ID_Team: results4.ID_Team}),
@@ -178,7 +178,7 @@
 	let torneocreato = 0;
 
 	async function creazioneTorneo() {
-		const response = await fetch('http://192.168.185.55:8080/tournament/create', {
+		const response = await fetch('http://192.168.43.55:8080/tournament/create', {
 			method: 'post',
 
 			body: JSON.stringify({

@@ -46,7 +46,7 @@ function searchTorneo (){
 		
 	} else {
 
-	fetch('http://192.168.185.55:8080/tournament/search', {
+	fetch('http://192.168.43.55:8080/tournament/search', {
 		method: 'post',
 
 		body: JSON.stringify({ name: ricercaTorneo }),
@@ -69,7 +69,7 @@ let results10: {
 async function selezionaTorneo(id) { 
 		
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.185.55:8080/tournament/tournamentID', {
+			fetch('http://192.168.43.55:8080/tournament/tournamentID', {
 				method: 'post',
 
 				body: JSON.stringify({ID_Tournament:id}),
@@ -95,7 +95,7 @@ let results=[];
 let name:string;
 async function cercaTorneo() {
 	if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.185.55:8080/tournament/allTournament', {
+		fetch('http://192.168.43.55:8080/tournament/allTournament', {
 			method: 'post',
 
 			body: JSON.stringify({ name: ricercaTorneo }),
@@ -118,7 +118,7 @@ async function cercaTorneo() {
 let results1=[]
 
 $: if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.185.55:8080/tournament/search', {
+		fetch('http://192.168.43.55:8080/tournament/search', {
 			method: 'post',
 
 			body: JSON.stringify({name: ricerca}),
@@ -139,7 +139,7 @@ $: if (typeof localStorage != 'undefined') {
 let results2=[]
 async function selezionatorneo( id) {
 	if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.185.55:8080/tournament/allTournament', {
+		fetch('http://192.168.43.55:8080/tournament/allTournament', {
 			method: 'post',
 
 			body: JSON.stringify({id}),
@@ -370,8 +370,4 @@ async function selezionatorneo( id) {
 		flex-direction: column;
 		height: 100%;
 	}
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> 8064e2d2104060441613e7d77dcf4d06dc4d529c
