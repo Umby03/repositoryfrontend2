@@ -9,6 +9,7 @@
 </script>
 
 <script lang="ts">
+	import Brackets from '../../../components/brackets/index.svelte'
 	import { onMount } from 'svelte';
 
 	export let id: string;
@@ -16,7 +17,7 @@
 
 
 	onMount(async () => {
-		const response = await fetch('http://192.168.185.55:8080/tournament/searchID', {
+		const response = await fetch('http://192.168.43.55:8080/tournament/searchID', {
 			method: 'post',
 			body: JSON.stringify({ ID_Tournament: id }),
 			headers: {
@@ -35,7 +36,7 @@
 	async function unisciti (){
 		//iscriversi come utente normale
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.185.55:8080/tournament/', { //mettere il percorso giusto
+            fetch('http://192.168.43.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
@@ -52,7 +53,7 @@
 		async function uniscitiClub (){
 		//iscriversi come club
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.185.55:8080/tournament/', { //mettere il percorso giusto
+            fetch('http://192.168.43.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
@@ -72,7 +73,7 @@
 		$: {
 		if (typeof localStorage != 'undefined') {
             //per visualizzare tutti i club
-			fetch('http://192.168.185.55:8080/tournament/search', {
+			fetch('http://192.168.43.55:8080/tournament/search', {
 
 				method: 'post',
 				body: JSON.stringify({name}),
@@ -94,7 +95,7 @@
 async function selezionaclub( id){
 	//per mandare l'id del club selezionato
 	if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.185.55:8080/tournament/searchID', {
+            fetch('http://192.168.43.55:8080/tournament/searchID', {
 				method: 'post',
 				body: JSON.stringify({id}),
                 headers: {
@@ -110,6 +111,7 @@ async function selezionaclub( id){
 		}
       */
 </script>
+<Brackets />
 
 {#if torneo}
  SE IL TORNEO è PRIVATO VISUALIZZO INSERIRE IL CODICE DI INGRESSO, IL CODICE DI INGRESSO CORRETTO TI MANDA ALLA PAGINA DOVE PUOI SCEGLIERE COME REGISTRARTI
@@ -153,7 +155,6 @@ async function selezionaclub( id){
 			{/each}
 			</datalist>-->	
 		</right>
-
 
 	{:else}
 		{torneo.winner}
