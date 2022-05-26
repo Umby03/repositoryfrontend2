@@ -8,27 +8,11 @@
         let name_sport: string;
        
         let results = [];
-    
-    async function invitaUtente() {
-		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.185.55:8080/tournament/allTournament', {
-    
-                headers: {
-                    'content-type': 'application/json',
-                   authorization: localStorage.getItem('token')
-                }
-            })
-                .then((resp) => resp.json())
-                .then((json) => {
-                    results = json;
-                });
-			}
-        }
      
     
       
       	async function creazioneClub() {
-		const response = await fetch('http://192.168.185.55:8080/tournament/create', {
+		const response = await fetch('http://192.168.43.55:8080/club/create', {
 			method: 'post',
 
 			body: JSON.stringify({
@@ -80,20 +64,7 @@
 				<textarea  style=" height:10px;"bind:value={name_sport} class="form-control" id="textarea2" rows="3" />
 			</div>
 			  <div class="mb-3">
-			 </div>
-			Clicca qui per generare un link da inviare ad un tuo amico
-			<p>
-			<button
-				type="button"
-				class="btn btn-outline-warning"
-				style=" margin-top:30px; "
-				on:click={() => {
-					invitaUtente();
-				}}>INVITA UTENTE</button
-			>
-				</p>
-
-			 
+			 </div> 
 		
 				
 

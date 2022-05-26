@@ -4,29 +4,36 @@
   let cont=0 
   let cont2=0 
   let results = [];
-  let results2=[];
+  let results2= [];
 
 	$:{
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.185.55:8080/tournament/my', {
-				method: 'post',
+			fetch('http://192.168.43.55:8080/tournament/my', {
+				method: 'get',
 
 				headers: {
 					'content-type': 'application/json',
 					authorization: localStorage.getItem('token')
 				}
 			})
-				.then((resp) => resp.json())
+				.then((resp) => {
+          if (resp.ok) {
+            return resp.json()
+          }
+
+          throw new Error('bad response')
+        })
 				.then((json) => {
 					results = json;
-				});
+				})
+        .catch(console.error);
 		}
 	}
 
   $: {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.185.55:8080/club/my', {
-				method: 'post',
+			fetch('http://192.168.43.55:8080/club/my', {
+				method: 'get',
 
 				headers: {
 					'content-type': 'application/json',
@@ -35,6 +42,7 @@
 			})
 				.then((resp) => resp.json())
 				.then((json) => {
+          console.log("Change results2, is array:", Array.isArray(json))
 					results2 = json;
 				});
 		}
