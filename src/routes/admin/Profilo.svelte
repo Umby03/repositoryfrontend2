@@ -57,7 +57,7 @@ function funzione1(){
 
 <style>
 :global(body){
-        background-color:rgba(46, 42, 44, 0.8);
+        background-color:rgba(112, 111, 111, 0.8);
         background-repeat: no-repeat;
     }
 </style>

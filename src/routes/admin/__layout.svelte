@@ -22,17 +22,83 @@
 		window.location.href = '/public/home/';
 	}
 
-	let ricerca;
+	let ricercaTorneo;
+	let results1 = [];
+
+function searchTorneo (){
+	if (typeof localStorage != 'undefined') {
+
+	if (ricercaTorneo && ricercaTorneo.startsWith(" ")) {
+	
+		let idTorneo = null
+		const x3 = ricercaTorneo.trim()
+		results1.forEach(element => {
+			if(element.name == x3){
+				idTorneo = element.ID_Tournament
+				return
+			}
+		});
+
+		if(idTorneo != null){
+			selezionaTorneo(idTorneo)
+			idTorneo = null
+		}
+		
+	} else {
+
+	fetch('http://192.168.43.55:8080/tournament/search', {
+		method: 'post',
+
+		body: JSON.stringify({ name: ricercaTorneo }),
+
+		headers: {
+			'content-type': 'application/json',
+			authorization: localStorage.getItem('token')
+		}
+	})
+		.then((resp) => resp.json())
+		.then((json) => {
+			results1 = json;
+		
+		});
+}}
+}
+let results10: {
+		ID_Tournament?: number;
+	} = {};
+async function selezionaTorneo(id) { 
+		
+		if (typeof localStorage != 'undefined') {
+			fetch('http://192.168.43.55:8080/tournament/tournamentID', {
+				method: 'post',
+
+				body: JSON.stringify({ID_Tournament:id}),
+
+				headers: {
+					'content-type': 'application/json',
+					authorization: localStorage.getItem('token')
+				}
+			})
+				.then((resp) => resp.json())
+				.then((json) => {
+					results10 = json;
+                    ricercaTorneo= results10.ID_Tournament
+					localStorage.setItem("torneo", JSON.stringify(results10));
+	                window.location.href = '/admin/cercaTorneo' 
+				});
+		}
+	}
+
 
 
 let results=[];
 let name:string;
 async function cercaTorneo() {
 	if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.210.55:8080/tournament/allTournament', {
+		fetch('http://192.168.43.55:8080/tournament/allTournament', {
 			method: 'post',
 
-			body: JSON.stringify({ name: ricerca }),
+			body: JSON.stringify({ name: ricercaTorneo }),
 
 			headers: {
 				'content-type': 'application/json',
@@ -48,11 +114,11 @@ async function cercaTorneo() {
 
 	}
 }
-
+/*
 let results1=[]
 
 $: if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.210.55:8080/tournament/search', {
+		fetch('http://192.168.43.55:8080/tournament/search', {
 			method: 'post',
 
 			body: JSON.stringify({name: ricerca}),
@@ -69,11 +135,11 @@ $: if (typeof localStorage != 'undefined') {
 			});	
 
 	}
-
+*
 let results2=[]
 async function selezionatorneo( id) {
 	if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.210.55:8080/tournament/allTournament', {
+		fetch('http://192.168.43.55:8080/tournament/allTournament', {
 			method: 'post',
 
 			body: JSON.stringify({id}),
@@ -92,7 +158,7 @@ async function selezionatorneo( id) {
 
 	}
 }
-
+*/
 
 
 
@@ -138,7 +204,9 @@ async function selezionatorneo( id) {
 		<div class="d-flex h-100">
 			<form class="d-flex search-form" id="form" list="datalistOptions">
 				<input
-					bind:value={ricerca}
+					bind:value={ricercaTorneo}
+                    on:change={searchTorneo}
+				    on:keydown={searchTorneo}
 					class="form-control"
 					list="datalistOptions"
 					id="list"
@@ -148,12 +216,7 @@ async function selezionatorneo( id) {
 
 				<datalist id="datalistOptions">
 					{#each results1 as item, i}
-						<option
-							value={item.name}
-							on:click={() => {
-								selezionatorneo(item.ID_Tournament);
-							}}
-						/>
+					<option value={" " + item.name}></option>
 					{/each}
 
 				</datalist>
