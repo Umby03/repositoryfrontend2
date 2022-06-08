@@ -50,7 +50,7 @@
 </script>
 
 {#if club}
-
+<center>
 <h1><b>Utenti del Club</b></h1>
 <br />  <br /> 
  <table class="table table-dark table-striped">
@@ -70,7 +70,7 @@
   {/each}
     </tbody>
  </table>
-
+</center>
 
 
 
