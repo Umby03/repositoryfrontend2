@@ -46,7 +46,7 @@ function searchTorneo (){
 		
 	} else {
 
-	fetch('http://192.168.43.55:8080/tournament/search', {
+	fetch('http://192.168.236.55:8080/tournament/search', {
 		method: 'post',
 
 		body: JSON.stringify({ name: ricercaTorneo }),
@@ -69,7 +69,7 @@ let results10: {
 async function selezionaTorneo(id) { 
 		
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.43.55:8080/tournament/tournamentID', {
+			fetch('http://192.168.236.55:8080/tournament/tournamentID', {
 				method: 'post',
 
 				body: JSON.stringify({ID_Tournament:id}),
@@ -95,7 +95,7 @@ let results=[];
 let name:string;
 async function cercaTorneo() {
 	if (typeof localStorage != 'undefined') {
-		fetch('http://192.168.43.55:8080/tournament/allTournament', {
+		fetch('http://192.168.236.55:8080/tournament/allTournament', {
 			method: 'post',
 
 			body: JSON.stringify({ name: ricercaTorneo }),
@@ -293,18 +293,6 @@ async function selezionatorneo( id) {
 						>
 							<svg class="bi me-2" width="16" height="16"><use xlink:href="#home" /></svg>
 							Crea un torneo
-						</a>
-					</li>
-					<li class="side-item">
-						<a href="#" class="nav-link text-white">
-							<svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2" /></svg>
-							Visualizza club
-						</a>
-					</li>
-					<li class="side-item">
-						<a href="#" class="nav-link text-white">
-							<svg class="bi me-2" width="16" height="16"><use xlink:href="#table" /></svg>
-							Visualizza torneo
 						</a>
 					</li>
 					<li class="side-item">

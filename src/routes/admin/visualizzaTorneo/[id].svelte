@@ -36,7 +36,7 @@
 	async function unisciti (){
 		//iscriversi come utente normale
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.43.55:8080/tournament/', { //mettere il percorso giusto
+            fetch('http://192.168.236.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
@@ -53,7 +53,7 @@
 		async function uniscitiClub (){
 		//iscriversi come club
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.43.55:8080/tournament/', { //mettere il percorso giusto
+            fetch('http://192.168.236.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
