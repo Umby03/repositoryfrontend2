@@ -15,9 +15,9 @@ const teams = [
 
 
 export	const partite = {
-		8:[
+		'ottavo':[
 			{
-				club:['Turtles','Hummingbirds','aaaa','aaaaaa'],
+				club:['Turtles','Hummingbirds'],
 				winner:'Hummingbirds',
 				score:[3,0]
 			},

@@ -11,6 +11,19 @@ export function selectWinners(teams,partite) {
         return winners
 
     }
+    
+ /*   if(length === 4){
+        const quarto = partite['quarto']
+       // console.log(ottavo,'ottavo')
+        winners = quarto.map(w=>teams.find(t=>t.name === w.winner))
+       // console.log(winners)
+        return winners
+
+    }
+
+    
+*/
+
     const half = Array(length / 2)
 		.fill(null)
 		.map((item, index) => {

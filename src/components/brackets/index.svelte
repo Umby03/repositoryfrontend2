@@ -1,6 +1,6 @@
 <script lang="ts">
 	// components behind the application
-	import Controls from './Controls.svelte';
+	//import Controls from './Controls.svelte';
 	import Bracket from './Bracket.svelte';
 	import { names } from './stores';
     import Header from './header.svelte'; 
@@ -19,8 +19,7 @@
 </script>
 
 <Header title="Who's going to win?" />
-
-<Controls on:shuffle={handleShuffle} />
+<!--<Controls on:shuffle={handleShuffle} />--->
 
 <!-- to display the names side by side, wrap the bracket component in a container styled as a flex row -->
 <main class="bracket">

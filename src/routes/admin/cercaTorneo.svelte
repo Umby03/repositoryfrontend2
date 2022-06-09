@@ -27,7 +27,7 @@ import {mockData} from "../../mock"
 	if (typeof localStorage != 'undefined') {
  
 	 //per visualizzare tutti i club
-	 fetch('http://192.168.43.55:8080/tournament/allTournament', {
+	 fetch('http://192.168.236.55:8080/tournament/allTournament', {
 
 		 method: 'post',
 		 body: JSON.stringify({ name: ricerca}),
@@ -50,7 +50,7 @@ let results2=[];
 async function selezionatorneo( id){
 //per mandare l'id del club selezionato
 if (typeof localStorage != 'undefined') {
-	 fetch('http://192.168.43.55:8080/tournament/tournamentID', {
+	 fetch('http://192.168.236.55:8080/tournament/tournamentID', {
 		 method: 'post',
 		 body: JSON.stringify({id}),
 		 headers: {
@@ -67,7 +67,7 @@ if (typeof localStorage != 'undefined') {
 
 	async function cercaTorneo() {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.43.55:8080/tournament/allTournament', {
+			fetch('http://192.168.236.55:8080/tournament/allTournament', {
 				method: 'post',
 
 				body: JSON.stringify({ name: ricerca }),

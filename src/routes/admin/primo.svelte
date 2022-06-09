@@ -8,7 +8,7 @@
 
 	$:{
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.43.55:8080/tournament/my', {
+			fetch('http://192.168.236.55:8080/tournament/my', {
 				method: 'post',
 
 				headers: {
@@ -25,7 +25,7 @@
 
   $: {
 		if (typeof localStorage != 'undefined') {
-			fetch('http://192.168.43.55:8080/club/my', {
+			fetch('http://192.168.236.55:8080/club/my', {
 				method: 'post',
 
 				headers: {

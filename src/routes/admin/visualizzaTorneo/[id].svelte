@@ -17,7 +17,7 @@
 
 
 	onMount(async () => {
-		const response = await fetch('http://192.168.43.55:8080/tournament/searchID', {
+		const response = await fetch('http://192.168.236.55:8080/tournament/searchID', {
 			method: 'post',
 			body: JSON.stringify({ ID_Tournament: id }),
 			headers: {
@@ -36,7 +36,7 @@
 	async function unisciti (){
 		//iscriversi come utente normale
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.43.55:8080/tournament/', { //mettere il percorso giusto
+            fetch('http://192.168.236.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
@@ -53,7 +53,7 @@
 		async function uniscitiClub (){
 		//iscriversi come club
 		if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.43.55:8080/tournament/', { //mettere il percorso giusto
+            fetch('http://192.168.236.55:8080/tournament/', { //mettere il percorso giusto
     
                 headers: {
                     'content-type': 'application/json',
@@ -73,7 +73,7 @@
 		$: {
 		if (typeof localStorage != 'undefined') {
             //per visualizzare tutti i club
-			fetch('http://192.168.43.55:8080/tournament/search', {
+			fetch('http://192.168.236.55:8080/tournament/search', {
 
 				method: 'post',
 				body: JSON.stringify({name}),
@@ -95,7 +95,7 @@
 async function selezionaclub( id){
 	//per mandare l'id del club selezionato
 	if (typeof localStorage != 'undefined') {
-            fetch('http://192.168.43.55:8080/tournament/searchID', {
+            fetch('http://192.168.236.55:8080/tournament/searchID', {
 				method: 'post',
 				body: JSON.stringify({id}),
                 headers: {
