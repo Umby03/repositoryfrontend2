@@ -17,7 +17,7 @@ import { onMount } from "svelte";
     
       
       	async function creazioneClub() {
-		const response = await fetch('http://192.168.236.55:8080/tournament/create', {
+		const response = await fetch('http://192.168.236.55:8080/club/create', {
 			method: 'post',
 
 			body: JSON.stringify({

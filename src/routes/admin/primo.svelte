@@ -17,7 +17,7 @@ import { onMount } from "svelte";
 	$:{
 		if (typeof localStorage != 'undefined') {
 			fetch('http://192.168.236.55:8080/tournament/my', {
-				method: 'post',
+				method: 'get',
 
 				headers: {
 					'content-type': 'application/json',
@@ -41,7 +41,7 @@ import { onMount } from "svelte";
   $: {
 		if (typeof localStorage != 'undefined') {
 			fetch('http://192.168.236.55:8080/club/my', {
-				method: 'post',
+				method: 'get',
 
 				headers: {
 					'content-type': 'application/json',
@@ -87,7 +87,7 @@ import { onMount } from "svelte";
             <tr on:click={() => {
               window.location.href  = '/admin/visualizzaTorneo/' + item.ID_Tournament;
                 }}>
-                <th scope="row">{cont + i}</th>
+                <th scope="row">{cont + i + 1}</th>
                 <td>{item.name}</td>
                 <td>{item.description}</td>
               </tr>
@@ -114,7 +114,7 @@ import { onMount } from "svelte";
           <tr on:click={() => {
             window.location.href  = '/admin/visualizzaClub/' + item.ID_Club;
               }}>
-              <th scope="row">{cont + i}</th>
+              <th scope="row">{cont + i + 1}</th>
               <td>{item.name}</td>
               <td>{item.bio}</td>
               <td>{item.name_sport}</td>

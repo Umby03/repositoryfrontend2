@@ -296,18 +296,6 @@ async function selezionatorneo( id) {
 							Crea un torneo
 						</a>
 					</li>
-					<!--<li class="side-item">
-						<a href="#" class="nav-link text-white">
-							<svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2" /></svg>
-							Visualizza club
-						</a>
-					</li>
-					<li class="side-item">
-						<a href="#" class="nav-link text-white">
-							<svg class="bi me-2" width="16" height="16"><use xlink:href="#table" /></svg>
-							Visualizza torneo
-						</a>
-					</li>-->
 					<li class="side-item">
 						<a
 							href="#"
