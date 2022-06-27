@@ -14,10 +14,11 @@
 
 	export let id: string;
 	let torneo;
-
+   
 
 	onMount(async () => {
-		const response = await fetch('http://192.168.236.55:8080/tournament/searchID', {
+		try {
+			const response = await fetch('http://192.168.236.55:8080/tournament/searchID', {
 			method: 'post',
 			body: JSON.stringify({ ID_Tournament: id }),
 			headers: {
@@ -28,12 +29,45 @@
 
 		const json = await response.json();
 		torneo = json;
+		console.log(torneo.rounds);
+		} catch (error) {
+			// alert("Errore generico");
+			console.error(error);
+		}
+
 	});
 
   let results=[];
   let results2=[];
- 
-	async function unisciti (){
+ let risultatoStart=[];
+
+
+
+
+  async function Start(){
+	const response = await fetch('http://192.168.236.55:8080/tournament/start', {
+			method: 'post',
+			body: JSON.stringify({ ID_Tournament: id }),
+			headers: {
+				'content-type': 'application/json',
+				authorization: localStorage.getItem('token')
+			}
+		});
+
+		const json = await response.json();
+		 risultatoStart = json;
+  }
+let email:string;
+let loggato=0;
+  onMount(() => {
+		if(localStorage.getItem('Profilo')){
+	  	loggato=1;
+		  email=localStorage.getItem('Profilo');
+			}
+		})
+
+
+/*	async function unisciti (){
 		//iscriversi come utente normale
 		if (typeof localStorage != 'undefined') {
             fetch('http://192.168.236.55:8080/tournament/', { //mettere il percorso giusto
@@ -67,7 +101,7 @@
 			}
         }
 
-     /*  let results1;
+      let results1;
 
        let name: string;
 		$: {
@@ -111,53 +145,77 @@ async function selezionaclub( id){
 		}
       */
 </script>
-<Brackets />
+<center>
 
+<h1 style="margin-top:50px;">Torneo degli amici</h1>
+
+<img
+			src="/brackets1.png"
+			width="50%"
+			height="50%"
+			class="rounded mx-auto d-block"
+			alt="schema torneo"
+			style="margin-top:50px; margin-bottom:50px"
+		/>
+ </center>
+
+<!--
 {#if torneo}
- SE IL TORNEO è PRIVATO VISUALIZZO INSERIRE IL CODICE DI INGRESSO, IL CODICE DI INGRESSO CORRETTO TI MANDA ALLA PAGINA DOVE PUOI SCEGLIERE COME REGISTRARTI
+
+
+
 	<center>
 		<h1>{torneo.name}</h1>
 	</center>
+	<button
+			type="button"
+			class="btn btn-outline-warning"
+			style=" margin-top:30px"
+			on:click={() => {
+				Start();
+			}}><h2>Start Torneo</h2></button
+		>
 
-	{#if torneo.inprogress == 1}
+	{#if torneo.inprogress == 0}
+	
 	<right>
 		<button
-			type="button"
-			class="btn btn-outline-warning"
-			style=" margin-top:30px"
-			on:click={() => {
-				unisciti();
-			}}><h2>ISCRIVITI</h2></button
-		>
-		<button
-			type="button"
-			class="btn btn-outline-warning"
-			style=" margin-top:30px"
-			on:click={() => {
-				uniscitiClub();
-			}}><h2>ISCRIVITI COME CLUB</h2></button
-		>
+				type="button"
+				class="btn btn-outline-warning"
+				style=" margin-top:30px"
+				on:click={() => {
+					unisciti();
+				}}><h2>ISCRIVITI</h2></button
+			>
+			<button
+				type="button"
+				class="btn btn-outline-warning"
+				style=" margin-top:30px"
+				on:click={() => {
+					uniscitiClub();
+				}}><h2>ISCRIVITI COME CLUB</h2></button
+			>
+	<label for="list" class="form-label">Unisciti come Club</label>
+			<input
+				bind:value={name}
+				class="form-control"
+				list="datalistOptions"
+				id="list"
+				placeholder="Cerca tra i tuoi club"
+			/>
+			<datalist id="datalistOptions">
+				{#each results1 as item, i}
+					<option value={item.name} on:click={() => {
+						selezionaclub(item.ID_Club);
+					}}></option>
+				{/each}
+				</datalist>
+			</right>
+	
 
-       
-	<!--<label for="list" class="form-label">Unisciti come Club</label>
-		<input
-		    bind:value={name}
-			class="form-control"
-			list="datalistOptions"
-			id="list"
-			placeholder="Cerca tra i tuoi club"
-		/>
-		<datalist id="datalistOptions">
-			{#each results1 as item, i}
-				<option value={item.name} on:click={() => {
-					selezionaclub(item.ID_Club);
-				}}></option>
-			{/each}
-			</datalist>-->	
-		</right>
 
-	{:else}
-		{torneo.winner}
+
 	{/if}
 	BRAKETS
 {/if}
+		  -->		

@@ -4,6 +4,13 @@
 	import { each } from 'svelte/internal';
 
 	import { flag } from '../../stores/store';
+ 
+	onMount(() => {
+		if(!localStorage.getItem('Profilo')){
+	  	 window.location.href= "/public/login"
+			}
+		})
+
 
 	let name: string;
 	let description: string;
@@ -13,21 +20,26 @@
 	let ricerca: string;
 	let ricerca2: string;
 	let nomeTeam: string;
-
+   
 	let results1 = [];
-
+    let Utenti=[];
+    let i=0;
 	function searchUtente (){
 		if (typeof localStorage != 'undefined') {
 
 		if (ricerca && ricerca.startsWith(" ")) {
-		/*	const idx = Number(ricerca.replace("#", ""))
-			const x = results1[idx]
-			ricerca = x.email*/
 			let idUser = null
             const x = ricerca.trim()
 			results1.forEach(element => {
 				if(element.email == x){
 					idUser = element.ID_User
+					return
+				}
+			});
+			results1.forEach(element => {
+				if(element.email == x){
+					Utenti[i] = element.email;
+					i++;
 					return
 				}
 			});
@@ -102,6 +114,8 @@
 
 
 
+let results2;
+
 	async function selezionaUtente(id) {
 		if (typeof localStorage != 'undefined') {
 			fetch('http://192.168.236.55:8080/team/create', {
@@ -117,6 +131,7 @@
 				.then((resp) => resp.json())
 				.then((json) => {
 					results2 = json;
+                    ricerca="";
 				});
 		}
 	}
@@ -125,7 +140,7 @@
 		ID_Team?: number;
 	} = {};
 
-	let results2 = [];
+
 	
 
 	async function selezionaUtenteTeam(id) {
@@ -199,6 +214,12 @@
 
 		torneocreato = 1;
 	}
+
+async function nuovoTeam () {
+	ricerca2="";
+
+	let creazione=1;
+}
 
 	/*if(!localStorage.getItem('Profilo')){
      goto('/public/login')
@@ -276,9 +297,10 @@
 			</div>
 
 			<button
+			   
 				type="button"
 				class="btn btn-outline-warning"
-				style=" margin-top:30px"
+				style=" margin-top:30px; margin-bottom:20px"
 				on:click={() => {
 					creazioneTorneo();
 				}}><h2>CREA TORNEO</h2></button
@@ -322,13 +344,13 @@
 							}}>Inserisci Utente</button
 						>
 					
-
+-->
 					Utenti inseriti:
 					<ul>
-						{#each utenti as item, c}
+						{#each Utenti as item, c}
 							<li>{item}</li>
 						{/each}
-					</ul>-->
+					</ul>
 				{:else}
 				<input type="text" placeholder="Inserisci il nome del team" bind:value={nomeTeam}> 
 				<label class="form-check-label" for="form-inline my-2 my-lg-0">Inserisci Utente </label>
@@ -351,7 +373,15 @@
 						{/each}
 					</datalist>
 					<br /></form>
-			
+
+					<button
+					type="button"
+					class="btn btn-outline-warning"
+					style=" margin-top:30px"
+					on:click={() => {
+						nuovoTeam()
+					}}><h2>NUOVO TEAM</h2></button
+				>
 
 			
 				{/if}

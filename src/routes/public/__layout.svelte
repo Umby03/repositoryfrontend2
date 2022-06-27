@@ -45,23 +45,25 @@ function actionClick(){
 <div class="container-fluid">
 	<div class="navdiv">
 		
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark" style="margin-right:0px; margin-left:-12px">
-		<a class="navbar-brand" href="#">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-right:0px; margin-left:-12px">
+		
+		<!--<link rel="icon" href="%svelte.assets%/favicon.png" />-->	
 			<img
-				src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+			    src="/braveme.png"
 				alt=""
-				width="30"
-				height="24"
+				width="100"
+				height="50"
 				class="d-inline-block align-text-top"
+				style="margin-left:20px; margin-right:20px"
 			/>
-		</a>
+	
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link active" on:click={()=>{ActionClick()}}><h4>Home</h4></a>
+					<a class="nav-link active" style="margin-top:10px" on:click={()=>{ActionClick()}}><h6>Home</h6></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" on:click={()=>{actionClick()}}><h4>Accedi/Registrati</h4></a>
+					<a class="nav-link" style="margin-top:10px" on:click={()=>{actionClick()}}><h6>Accedi/Registrati</h6></a>
 				</li>
 			</ul>
 			<form class="d-flex">
@@ -81,7 +83,7 @@ function actionClick(){
 </div>
 </div>
 
-	<div class="container-fluid" style="background-color:#333333">
+	<div class="container-fluid">
 	<slot />
 <!--{ciaovar}
 

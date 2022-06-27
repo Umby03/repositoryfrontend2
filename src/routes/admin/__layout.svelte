@@ -167,6 +167,7 @@ async function selezionatorneo( id) {
 </script>
 
 <div id="container">
+	<div class="navdiv">
 	<nav class="bg-light">
 		<button
 			class="btn btn-dark"
@@ -190,16 +191,15 @@ async function selezionatorneo( id) {
 				/>
 			</svg>
 		</button>
-		<a class="brand" style="margin: 0; float: none;" href="#">
-			<img
-				src="/docs/5.1/assets/brand/bootstrap-logo.svg"
-				alt=""
-				width="30"
-				height="24"
-				class="d-inline-block align-text-top"
-				style="text-align:center"
-			/>
-		</a>
+		<img
+		src="/braveme.png"
+		alt=""
+		width="100"
+		height="50"
+		class="d-inline-block align-text-top"
+		style="margin-left:270px; "
+	  />
+
 
 		<div class="d-flex h-100">
 			<form class="d-flex search-form" id="form" list="datalistOptions">
@@ -244,8 +244,9 @@ async function selezionatorneo( id) {
 				/>
 			</a>
 		</div>
-	</nav>
 
+	</nav>
+</div>
 	<div style="flex:1">
 		<slot />
 	</div>
@@ -295,7 +296,7 @@ async function selezionatorneo( id) {
 							Crea un torneo
 						</a>
 					</li>
-					<li class="side-item">
+					<!--<li class="side-item">
 						<a href="#" class="nav-link text-white">
 							<svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2" /></svg>
 							Visualizza club
@@ -306,7 +307,7 @@ async function selezionatorneo( id) {
 							<svg class="bi me-2" width="16" height="16"><use xlink:href="#table" /></svg>
 							Visualizza torneo
 						</a>
-					</li>
+					</li>-->
 					<li class="side-item">
 						<a
 							href="#"
@@ -339,6 +340,13 @@ async function selezionatorneo( id) {
 
 <style lang="scss">
 
+	.navdiv{
+		position:fixed;
+		top:0;
+		width:100%;
+		z-index:999;
+	}
+	
 	nav {
 		display: flex;
 		justify-content: space-between;

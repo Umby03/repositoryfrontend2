@@ -38,7 +38,7 @@
 </script>
 <h1>Accedi</h1>
 
-<form style="width:300px; margin-top:30px">
+<form style="width:300px; margin-top:100px">
 	<div class="mb-3">
 		<label for="exampleInputEmail1" class="form-label"><h4>Email address</h4></label>
 		<input
@@ -61,6 +61,6 @@
 	</div>
 	<button type="button" class="btn btn-outline-warning" on:click|preventDefault={Login} ><h4>Submit</h4></button>
 </form>
-<div class="btn btn-link" style="color:black; padding:0%; margin-top:10px; margin-bottom:10px" on:click={toggleHasAccount}>
+<div class="btn btn-link" style="color:black; padding:0%; margin-top:10px; margin-bottom:80px" on:click={toggleHasAccount}>
 	Non hai ancora un Account?
 </div>

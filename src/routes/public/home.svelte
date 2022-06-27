@@ -33,7 +33,7 @@
 	</div>
 	<div class="col">
 		<img
-			src="https://img.freepik.com/vector-gratis/plantillas-soporte-torneo-plantilla-calendario-playoffs-soporte-torneo-diseno-creativo-soporte-torneo-blanco-ilustracion-vector_435184-453.jpg"
+			src="https://assets.challonge.com/assets/bracket-tree-8ce099d29904dd717b6707ff62fcdccfe3510956862e0a1b6d49265b02482a90.png"
 			width="90%"
 			height="90%"
 			class="rounded mx-auto d-block"

@@ -11,6 +11,14 @@ import { onMount } from "svelte";
 let user: any = {}
 
 onMount(() => {
+		if(!localStorage.getItem('Profilo')){
+	  	 window.location.href= "/public/login"
+			}
+		})
+
+
+
+onMount(() => {
 console.log(localStorage.getItem("Profilo"))
   user = JSON.parse(localStorage.getItem("Profilo"))
 })
@@ -56,8 +64,5 @@ function funzione1(){
 </center>
 
 <style>
-:global(body){
-        background-color:rgba(46, 42, 44, 0.8);
-        background-repeat: no-repeat;
-    }
+
 </style>

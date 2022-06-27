@@ -1,10 +1,18 @@
 <script>
+import { onMount } from "svelte";
+
   import {mockData} from "../../mock"
   console.log(mockData)
   let cont=0 
   let cont2=0 
   let results = [];
-  let results2=[];
+  let results2= [];
+
+  onMount(() => {
+		if(!localStorage.getItem('Profilo')){
+	  	 window.location.href= "/public/login"
+			}
+		})
 
 	$:{
 		if (typeof localStorage != 'undefined') {
@@ -16,10 +24,17 @@
 					authorization: localStorage.getItem('token')
 				}
 			})
-				.then((resp) => resp.json())
+				.then((resp) => {
+          if (resp.ok) {
+            return resp.json()
+          }
+
+          throw new Error('bad response')
+        })
 				.then((json) => {
 					results = json;
-				});
+				})
+        .catch(console.error);
 		}
 	}
 
@@ -35,6 +50,7 @@
 			})
 				.then((resp) => resp.json())
 				.then((json) => {
+          console.log("Change results2, is array:", Array.isArray(json))
 					results2 = json;
 				});
 		}
@@ -50,10 +66,11 @@
 
 <div class="row align-items-center justify-content-center" >
     <div class="col-md-3" id="sidebar"> 
-    </div>
-    <div class="col-md-6">
-      <center>
-        <h1><b>Your tournaments</b></h1>
+    </div> 
+   <center>
+    <div class="col-md-6" style="margin-left:10px">
+     <center>
+        <h1><b>Your tournaments</b></h1></center>
       <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
@@ -78,7 +95,8 @@
           </tbody>
        </table>
        <br />
-       <h1 style="margin-top:30px"><b>Your clubs</b></h1>
+       <center>
+       <h1 style="margin-top:30px"><b>Your clubs</b></h1></center>
       <br />  <br /> 
        <table class="table table-dark table-striped">
         <thead>
@@ -105,7 +123,9 @@
         {/each}
           </tbody>
        </table>
+   
     </div>
+  </center>
     <div class="col-md-3" id="sidebar"> 
     </div>
     </div>
@@ -116,10 +136,7 @@
         padding:0
     }
     
-    :global(body){
-        background-image: url("https://images3.alphacoders.com/147/147407.jpg");
-        background-repeat: no-repeat;
-    }
+  
 
     h1{
       margin-top:30px
